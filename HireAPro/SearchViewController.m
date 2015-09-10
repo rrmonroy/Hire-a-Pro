@@ -52,66 +52,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-
-    
-    searchResults = [[NSMutableArray alloc] init];
-    
-    PFQuery *query = [PFQuery queryWithClassName:SKILL_OBJECT  ];
-    [query orderByDescending:KEY_CREATION_DATE];
-            NSLog(@"1");
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
-        if (!error) {
-            NSLog(@"2");
-            self.resutlArray = nil;
-            self.resutlArray = [[NSArray alloc] initWithArray:objects];
-
-            //NSLog(@"objects :: %@",objects);
-            
-            for (PFObject *resutlObject in self.resutlArray){
-                
-                PFQuery *query3 = [PFUser query];
-                [query3 whereKey:@"objectId" equalTo:[resutlObject objectForKey:@"UserId"]]; // find all the women
-                NSArray *users = [query3 findObjects];
-
-                for (PFUser *resutlUsers in users){
-                    NSLog(@"First name %@",[resutlUsers objectForKey:@"FirstName"]);
-                    Person *person = [Person new];
-                    person.userid = [resutlUsers objectForKey:@"FirstName"];
-                    
-                    [searchResults addObject:person];
-                }
-                
-                
-            }
-            
-            
-
-            
-            [self.tableView reloadData];
-            
-            //Remove the activity indicator
-            [self.activityIndicator stopAnimating];
-            [self.activityIndicator removeFromSuperview];
-            
-            
-        } else {
-            //Remove the activity indicator
-            [self.activityIndicator stopAnimating];
-            [self.activityIndicator removeFromSuperview];
-            
-            //Show the error
-            NSString *errorString = [[error userInfo] objectForKey:@"error"];
-            [self showErrorView:errorString];
-        }
-    }];
-    
-    NSLog(@"3");
-    NSLog(@"%@",self.resutlArray);
-    
     AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 
-    
 
     
     if ([app.loginWith isEqualToString:@"facebook"]) {
@@ -133,63 +75,8 @@
     searchResults = nil;
     
 }
-#pragma mark - Fetching
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *simpleTableIdentifier = @"myRow";
-    
-    NSLog(@" cellForRowAtIndexPath %@",indexPath);
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-    }
-    Person *person = [searchResults objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = person.userid ;
-    
-     //   cell.textLabel.text = [searchResults objectAtIndex:indexPath.row];
-    
-    return cell;
-}
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *CellIdentifier = @"myRow";
-    
-    
-    NSLog(@" cellForRowAtIndexPath %@",indexPath);
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
-    //cell.textLabel.text = [searchResults objectAtIndex:indexPath.row];
-        cell.textLabel.text =@"hoo";
-    
-    
-    // Configure the cell...
-    
-    return cell;
-}
- 
- */
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-
-    NSLog(@" numberOfRowsInSection ");
-    
-//    return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
-    NSLog(@"%lu",(unsigned long)[searchResults count]);
-    return [searchResults count];
-
-    
-}
-
-
 - (IBAction)LogOut:(id)sender {
-
+    
     AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
     if ([app.loginWith isEqualToString:@"facebook"]) {
@@ -199,7 +86,7 @@
                 [button sendActionsForControlEvents:UIControlEventTouchUpInside];
             }
         }
-
+        
     }else{
         [PFUser logOut];
         
@@ -211,43 +98,17 @@
                            animated:YES
                          completion:nil];
         
-    
+        
     }
     
     NSLog(@"end code");
     
     
 }
-
 - (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error {
     // see https://developers.facebook.com/docs/reference/api/errors/ for general guidance on error handling for Facebook API
     // our policy here is to let the login view handle errors, but to log the results
     NSLog(@"FBLoginView encountered an error=%@", error);
 }
-
-- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
-    // test to see if we can use the share dialog built into the Facebook application
-    /*
-    FBLinkShareParams *p = [[FBLinkShareParams alloc] init];
-    p.link = [NSURL URLWithString:@"http://developers.facebook.com/ios"];
-    BOOL canShareFB = [FBDialogs canPresentShareDialogWithParams:p];
-    BOOL canShareiOS6 = [FBDialogs canPresentOSIntegratedShareDialogWithSession:nil];
-    BOOL canShareFBPhoto = [FBDialogs canPresentShareDialogWithPhotos];
-    */
- 
-    
-    NSLog(@"loginViewShowingLoggedOutUser");
-    
-    
-    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"main"
-                                                         bundle:nil];
-    LoginViewController *add = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-    
-    [self presentViewController:add
-                       animated:YES
-                     completion:nil];
-    
-}
-
 
 @end

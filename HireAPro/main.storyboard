@@ -161,10 +161,10 @@
             </objects>
             <point key="canvasLocation" x="2202.5" y="-933.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Show Results View Controller-->
         <scene sceneID="k0r-ug-Phv">
             <objects>
-                <viewController id="EIh-hX-6Uw" sceneMemberID="viewController">
+                <viewController id="EIh-hX-6Uw" customClass="ShowResultsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZR1-Br-47b"/>
                         <viewControllerLayoutGuide type="bottom" id="WhF-A2-DMJ"/>
@@ -1018,10 +1018,10 @@
             </objects>
             <point key="canvasLocation" x="3852.5" y="1389.5"/>
         </scene>
-        <!--Search View Controller-->
+        <!--Show Results View Controller-->
         <scene sceneID="QsF-2m-FIk">
             <objects>
-                <viewController id="FUf-BD-lKO" customClass="SearchViewController" sceneMemberID="viewController">
+                <viewController id="FUf-BD-lKO" customClass="ShowResultsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pm7-wF-eOJ"/>
                         <viewControllerLayoutGuide type="bottom" id="ne1-He-Xex"/>

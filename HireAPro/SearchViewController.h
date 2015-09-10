@@ -13,7 +13,7 @@
 #import "AppDelegate.h"
 
 
-@interface SearchViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,FBLoginViewDelegate>
+@interface SearchViewController : UIViewController <FBLoginViewDelegate>
 
 
 @property ( strong, nonatomic) NSManagedObjectContext *managedObjectContext;

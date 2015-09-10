@@ -15,6 +15,7 @@
 		BA3AB1241B6A76B600EF2266 /* OccupationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3AB1231B6A76B600EF2266 /* OccupationTableViewController.m */; };
 		BA3AB1271B6A791F00EF2266 /* Occupation.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3AB1261B6A791F00EF2266 /* Occupation.m */; };
 		BA6A3BF01B7A7F5100006BC6 /* EmailLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6A3BEF1B7A7F5100006BC6 /* EmailLoginViewController.m */; };
+		BAA073CE1BA1D0F500C1AECB /* ShowResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA073CD1BA1D0F500C1AECB /* ShowResultsViewController.m */; };
 		BAA4B0881B59882B00F60E4F /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA4B0871B59882B00F60E4F /* Person.m */; };
 		BAA863131B543DED0016725C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA863121B543DED0016725C /* main.m */; };
 		BAA863161B543DED0016725C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA863151B543DED0016725C /* AppDelegate.m */; };
@@ -71,6 +72,8 @@
 		BA3AB1261B6A791F00EF2266 /* Occupation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Occupation.m; sourceTree = "<group>"; };
 		BA6A3BEE1B7A7F5100006BC6 /* EmailLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailLoginViewController.h; sourceTree = "<group>"; };
 		BA6A3BEF1B7A7F5100006BC6 /* EmailLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailLoginViewController.m; sourceTree = "<group>"; };
+		BAA073CC1BA1D0F500C1AECB /* ShowResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowResultsViewController.h; sourceTree = "<group>"; };
+		BAA073CD1BA1D0F500C1AECB /* ShowResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowResultsViewController.m; sourceTree = "<group>"; };
 		BAA4B0861B59882B00F60E4F /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		BAA4B0871B59882B00F60E4F /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		BAA8630D1B543DED0016725C /* HireAPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HireAPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -264,6 +267,8 @@
 		BAA8634C1B54422D0016725C /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				BAA073CC1BA1D0F500C1AECB /* ShowResultsViewController.h */,
+				BAA073CD1BA1D0F500C1AECB /* ShowResultsViewController.m */,
 				BA3AB1121B66C1D600EF2266 /* GuestSearchViewController.h */,
 				BA3AB1131B66C1D600EF2266 /* GuestSearchViewController.m */,
 				BAA8633A1B5441480016725C /* SearchViewController.h */,
@@ -421,6 +426,7 @@
 				BA3AB1271B6A791F00EF2266 /* Occupation.m in Sources */,
 				BA3AB11E1B691EE900EF2266 /* ServicesTableViewController.m in Sources */,
 				BA3AB1211B69569600EF2266 /* Skills.m in Sources */,
+				BAA073CE1BA1D0F500C1AECB /* ShowResultsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
