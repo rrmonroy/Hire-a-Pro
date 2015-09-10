@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9E6C1651-08AF-4A32-B365-84623475B8C8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>HireAPro</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E6AA8A7184287353CD28CA92B2A22E0D639B6B1B</key>
+		<string>https://github.com/rrmonroy/Hire-a-Pro.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>HireAPro.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E6AA8A7184287353CD28CA92B2A22E0D639B6B1B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/rrmonroy/Hire-a-Pro.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E6AA8A7184287353CD28CA92B2A22E0D639B6B1B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E6AA8A7184287353CD28CA92B2A22E0D639B6B1B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Hire-a-Pro</string>
+		</dict>
+	</array>
+</dict>
+</plist>
