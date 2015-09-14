@@ -53,7 +53,13 @@
     
     PFQuery *query = [PFQuery queryWithClassName:SKILL_OBJECT  ];
     [query orderByDescending:KEY_CREATION_DATE];
+
+    [query whereKey:@"Occupation" equalTo:self.occupation];
+    
     NSLog(@"1");
+    
+    
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
         if (!error) {
@@ -75,6 +81,11 @@
 
                         Person *person = [Person new];
                         person.userid = [resutlUsers objectForKey:@"FirstName"];
+                        
+                        person.name = [resutlUsers objectForKey:@"FirstName"];
+                        person.lastname = [resutlUsers objectForKey:@"LastName"];
+                        person.email = [resutlUsers objectForKey:@"email"];
+                        
                         [searchResults addObject:person];
                     }
                 }
@@ -135,7 +146,14 @@
     }
     Person *person = [searchResults objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = person.userid ;
+//    cell.textLabel.text = person.userid ;
+    
+    UILabel *lbl_101 = (UILabel *)[cell viewWithTag:101];
+    lbl_101.text = [NSString stringWithFormat:@"%@ %@", person.name,person.lastname] ;
+    
+    UILabel *lbl_102 = (UILabel *)[cell viewWithTag:102];
+    lbl_102.text = person.email ;
+    
     
     //   cell.textLabel.text = [searchResults objectAtIndex:indexPath.row];
     

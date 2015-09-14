@@ -26,5 +26,9 @@
 - (IBAction)LogOut:(id)sender;
 
 
+@property (strong, nonatomic) IBOutlet UITextField *txt_occupation;
+@property (strong, nonatomic) IBOutlet UITextField *txt_tool;
+@property (strong, nonatomic) IBOutlet UITextField *txt_miles;
+@property (strong, nonatomic) IBOutlet UITextField *txt_zipcode;
 
 @end

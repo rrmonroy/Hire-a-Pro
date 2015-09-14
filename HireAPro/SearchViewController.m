@@ -11,6 +11,9 @@
 #import "Constants.h"
 #import "Person.h"
 #import "LoginViewController.h"
+#import "Skills.h"
+#import "OccupationTableViewController.h"
+#import "ShowResultsViewController.h"
 
 @interface SearchViewController ()
 @property (nonatomic, retain) NSArray *resutlArray;
@@ -110,5 +113,32 @@
     // our policy here is to let the login view handle errors, but to log the results
     NSLog(@"FBLoginView encountered an error=%@", error);
 }
+
+- (void)listWasSelected:(OccupationTableViewController *)controller{
+    
+//    [controller.navigationController popViewControllerAnimated:YES];
+    NSLog(@"Value selected %@",controller.selectedRow);
+
+    self.txt_occupation.text = controller.selectedRow;
+
+    [controller.navigationController popViewControllerAnimated:YES];
+    
+}
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+
+    if ([segue.identifier isEqualToString:@"getOccupation"])
+    {
+        OccupationTableViewController *destViewController = (OccupationTableViewController*)segue.destinationViewController;
+        destViewController.delegate = self;
+    }
+    if ([segue.identifier isEqualToString:@"showResults"])
+    {
+        ShowResultsViewController *destViewController = (ShowResultsViewController*)segue.destinationViewController;
+        destViewController.occupation = self.txt_occupation.text;
+    }
+    
+}
+
 
 @end

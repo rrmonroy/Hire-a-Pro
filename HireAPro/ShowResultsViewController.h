@@ -18,7 +18,7 @@
     @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
     @property (nonatomic, retain) NSMutableArray *searchResults;
-
+    @property (nonatomic, retain) NSString *occupation;
     @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 
