@@ -171,6 +171,9 @@
 
 - (void)listWasSelected:(OccupationTableViewController *)controller{
   
+    
+    self.btn_save.title = @"Save";
+    
     PFUser *currentUser = [PFUser currentUser];
     
     [controller.navigationController popViewControllerAnimated:YES];
@@ -228,4 +231,9 @@
     
 }
 
+- (IBAction)btn_save:(id)sender {
+    
+    [self performSegueWithIdentifier:@"Register" sender:self];
+    
+}
 @end

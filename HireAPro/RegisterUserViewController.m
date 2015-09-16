@@ -1,25 +1,24 @@
 //
-//  RegisterViewController.m
-//  TutorialBase
+//  RegisterUserViewController.m
+//  HireAPro
 //
-//  Created by Antonio MG on 6/27/12.
-//  Copyright (c) 2012 AMG. All rights reserved.
+//  Created by Ruben Ramos on 9/15/15.
+//  Copyright (c) 2015 Ruben Ramos. All rights reserved.
 //
 
-#import "RegisterViewController.h"
-#import "WallPicturesViewController.h"
-
+#import "RegisterUserViewController.h"
 #import <Parse/Parse.h>
 
-@interface RegisterViewController ()
+@interface RegisterUserViewController ()
 {
     
     NSString * cUser ;
     NSString * cUserId ;
 }
+
 @end
 
-@implementation RegisterViewController
+@implementation RegisterUserViewController
 
 //@synthesize userRegisterTextField = _userRegisterTextField, passwordRegisterTextField = _passwordRegisterTextField;
 
@@ -28,7 +27,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-
+        
     }
     return self;
 }
@@ -52,12 +51,6 @@
     [[self txt_fname]setDelegate:self];
     [[self txt_lname]setDelegate:self];
     
-    [[self txt_street]setDelegate:self];
-    [[self txt_city]setDelegate:self];
-    [[self txt_state]setDelegate:self];
-    [[self txt_zip]setDelegate:self];
-    [[self txt_country]setDelegate:self];
-    [[self txt_phone]setDelegate:self];
     
     [[self txt_email]setDelegate:self];
     [[self txt_pass1]setDelegate:self];
@@ -105,8 +98,8 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-//    self.userRegisterTextField = nil;
-//    self.passwordRegisterTextField = nil;
+    //    self.userRegisterTextField = nil;
+    //    self.passwordRegisterTextField = nil;
 }
 
 
@@ -115,31 +108,23 @@
 ////Sign Up Button pressed
 - (IBAction)SaveBasicInfo:(id)sender {
     
-        NSLog(@"SaveBasicInfo ");
+    NSLog(@"SaveBasicInfo ");
     
     if ([self.txt_pass1.text isEqualToString:self.txt_pass2.text]) {
         
-    
+        
         NSLog(@"PFUser ");
         PFUser *user = [PFUser user];
         user.username = self.txt_email.text;
         user.password = self.txt_pass1.text;
-
+        
         NSLog(@"Set Address ");
-        
-        [user setObject:self.txt_street.text forKey:@"Address"];
-        
         
         [user setObject:self.txt_fname.text forKey:@"FirstName"];
         [user setObject:self.txt_lname.text forKey:@"LastName"];
-        [user setObject:self.txt_city.text forKey:@"City"];
-        [user setObject:self.txt_state.text forKey:@"State"];
-        [user setObject:self.txt_zip.text forKey:@"Zip"];
-        [user setObject:self.txt_country.text forKey:@"Country"];
-        [user setObject:self.txt_phone.text forKey:@"Phone"];
         [user setObject:self.txt_email.text forKey:@"email"];
         
-        [user setObject:@"Vendor" forKey:@"ProfileStatus"];
+        [user setObject:@"User" forKey:@"ProfileStatus"];
         
         
         
@@ -151,7 +136,7 @@
                 //The registration was succesful, go to the wall
                 //self.userTextField.text= [fbuser objectForKey:@"email"];
                 cUser = self.txt_email.text;
-                [self performSegueWithIdentifier:@"SignupSuccesful" sender:self];
+                [self performSegueWithIdentifier:@"RegisterUser" sender:self];
                 
             } else {
                 //Something bad has ocurred
@@ -161,95 +146,36 @@
             }
         }];
     }else{
-
+        
         UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error!" message:@"Diff Password" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [errorAlertView show];
-    
-    
+        
+        
     }
 }
-/*
--(IBAction)signUpUserPressed:(id)sender
-{
-    PFUser *user = [PFUser user];
-    user.username = self.userRegisterTextField.text;
-    user.password = self.passwordRegisterTextField.text;
-    
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            //The registration was succesful, go to the wall
-            [self performSegueWithIdentifier:@"SignupSuccesful" sender:self];
-            
-        } else {
-            //Something bad has ocurred
-            NSString *errorString = [[error userInfo] objectForKey:@"error"];
-            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-            [errorAlertView show];
-        }
-    }];
 
-
-}
- */
 - (void) prepareForSegue: (UIStoryboardSegue *)segue sender:(id) sender{
     
     NSLog(@"prepareForSegue %@",segue.identifier);
     
-    if ([segue.identifier isEqualToString:@"SignupSuccesful"])
+    if ([segue.identifier isEqualToString:@"RegisterUser"])
     {
         
-//        WallPicturesViewController *destViewController = (WallPicturesViewController *)segue.destinationViewController;
-  //      destViewController.user1 = self.userRegisterTextField.text ;
+        //        WallPicturesViewController *destViewController = (WallPicturesViewController *)segue.destinationViewController;
+        //      destViewController.user1 = self.userRegisterTextField.text ;
         UINavigationController *destViewController = (UINavigationController*)segue.destinationViewController;
- //       destViewController.title =  self.txt_email.text;
-        
+//        destViewController.title =  self.txt_email.text;
+
         AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
         app.currentUser=self.txt_email.text;
         NSLog(@"viewDidLoad - wallPics - pass %@",    app.currentUser);
         
-
+        
+        
         
     }
 }
 
 
-- (void)textFieldDidEndEditing:(UITextField *)textField{
-   
-        [self.scrollView setContentOffset:CGPointMake(0, -40) animated:YES];
-}
-- (void)textFieldDidBeginEditing:(UITextField *)textField{
-    
-    //  [self.lbl_footer setHidden:TRUE];
-    // [self.lbl_footer1 setHidden:TRUE];
-    
-    if(textField.tag == 1 ){
-//        [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
-    }else if (textField.tag == 2){
-  //      [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
-    }else if (textField.tag == 3){
-        [self.scrollView setContentOffset:CGPointMake(0, 50) animated:YES];
-    }else if (textField.tag == 4){
-        [self.scrollView setContentOffset:CGPointMake(0, 80) animated:YES];
-    }else if (textField.tag == 5){
-        [self.scrollView setContentOffset:CGPointMake(0, 110) animated:YES];
-    }else if (textField.tag == 6){
-        [self.scrollView setContentOffset:CGPointMake(0, 140) animated:YES];
-    }else if (textField.tag == 7){
-        [self.scrollView setContentOffset:CGPointMake(0, 170) animated:YES];
-    }else if (textField.tag == 8){
-        [self.scrollView setContentOffset:CGPointMake(0, 200) animated:YES];
-    }else if (textField.tag == 9){
-        [self.scrollView setContentOffset:CGPointMake(0, 260) animated:YES];
-    }else if (textField.tag == 10){
-        [self.scrollView setContentOffset:CGPointMake(0, 290) animated:YES];
-    }else if (textField.tag == 11){
-        [self.scrollView setContentOffset:CGPointMake(0, 320) animated:YES];
-        
-    }
-    
-    
-    
-    
-}
 
 @end

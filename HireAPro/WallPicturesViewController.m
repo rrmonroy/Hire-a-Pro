@@ -196,7 +196,7 @@
 -(void)getWallImages
 {
     
-    NSLog(@"getWallImages - wallPics");
+    NSLog(@"getWallImages - wallPics %@",user);
     
     //Prepare the query to get all the images in descending order
     PFQuery *query = [PFQuery queryWithClassName:WALL_OBJECT  ];

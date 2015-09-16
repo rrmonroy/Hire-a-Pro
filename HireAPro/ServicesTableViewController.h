@@ -11,6 +11,8 @@
 
 @interface ServicesTableViewController : UITableViewController
 
-@property (nonatomic, retain) NSMutableArray *searchResults;
+    @property (nonatomic, retain) NSMutableArray *searchResults;
+    @property (strong, nonatomic) IBOutlet UIBarButtonItem *btn_save;
+    - (IBAction)btn_save:(id)sender;
 
 @end

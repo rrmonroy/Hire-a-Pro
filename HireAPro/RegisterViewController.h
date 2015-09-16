@@ -21,6 +21,8 @@
 - (IBAction)SaveBasicInfo:(id)sender;
 
 //-(IBAction)signUpUserPressed:(id)sender;
+@property (strong, nonatomic) IBOutlet UITextField *txt_fname;
+@property (strong, nonatomic) IBOutlet UITextField *txt_lname;
 
 
 @property (strong, nonatomic) IBOutlet UITextField *txt_street;
@@ -36,5 +38,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *txt_pass1;
 
 @property (strong, nonatomic) IBOutlet UITextField *txt_pass2;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
