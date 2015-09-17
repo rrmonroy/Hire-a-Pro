@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
-@interface ProfileViewController : UIViewController <UITextFieldDelegate ,UITextViewDelegate>
+@interface ProfileViewController : UIViewController <UITextFieldDelegate ,UITextViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
     @property (strong, nonatomic) IBOutlet UITextField *txt_username;
     @property (strong, nonatomic) IBOutlet UITextField *txt_address ;
@@ -19,6 +19,9 @@
     @property (strong, nonatomic) IBOutlet UITextField *txt_country;
     @property (strong, nonatomic) IBOutlet UITextField *txt_phone;
     @property (strong, nonatomic) IBOutlet UITextField *txt_email;
+- (IBAction)change_profilePic:(id)sender;
+@property (strong, nonatomic) IBOutlet UIImageView *profile_pic;
+@property (strong, nonatomic) IBOutlet UITextField *txt_lastname;
 
 
     @property (strong, nonatomic) NSString *user;

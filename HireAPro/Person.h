@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
 @interface Person : NSObject
     @property (nonatomic, strong) NSString *name;
@@ -27,6 +28,7 @@
     @property (nonatomic, strong) NSString *profilestatus;
     @property (nonatomic, strong) NSString *status;
     @property (nonatomic, strong) NSString *comments;
+    @property (nonatomic, strong) PFFile *profPicture;
 
 
 //Comments

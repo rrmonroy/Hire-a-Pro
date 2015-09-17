@@ -30,4 +30,5 @@
  @synthesize comments;
  @synthesize country;
 
+ @synthesize profPicture;
 @end

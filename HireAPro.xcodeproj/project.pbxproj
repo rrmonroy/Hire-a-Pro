@@ -17,6 +17,7 @@
 		BA6A3BF01B7A7F5100006BC6 /* EmailLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6A3BEF1B7A7F5100006BC6 /* EmailLoginViewController.m */; };
 		BAA073CE1BA1D0F500C1AECB /* ShowResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA073CD1BA1D0F500C1AECB /* ShowResultsViewController.m */; };
 		BAA073D11BA8BBA600C1AECB /* RegisterUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA073D01BA8BBA600C1AECB /* RegisterUserViewController.m */; };
+		BAA073D81BAA101E00C1AECB /* SelectOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA073D71BAA101E00C1AECB /* SelectOptionViewController.m */; };
 		BAA4B0881B59882B00F60E4F /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA4B0871B59882B00F60E4F /* Person.m */; };
 		BAA863131B543DED0016725C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA863121B543DED0016725C /* main.m */; };
 		BAA863161B543DED0016725C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA863151B543DED0016725C /* AppDelegate.m */; };
@@ -77,6 +78,8 @@
 		BAA073CD1BA1D0F500C1AECB /* ShowResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowResultsViewController.m; sourceTree = "<group>"; };
 		BAA073CF1BA8BBA600C1AECB /* RegisterUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterUserViewController.h; sourceTree = "<group>"; };
 		BAA073D01BA8BBA600C1AECB /* RegisterUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterUserViewController.m; sourceTree = "<group>"; };
+		BAA073D61BAA101E00C1AECB /* SelectOptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectOptionViewController.h; sourceTree = "<group>"; };
+		BAA073D71BAA101E00C1AECB /* SelectOptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectOptionViewController.m; sourceTree = "<group>"; };
 		BAA4B0861B59882B00F60E4F /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		BAA4B0871B59882B00F60E4F /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		BAA8630D1B543DED0016725C /* HireAPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HireAPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -254,6 +257,8 @@
 				BA6A3BEF1B7A7F5100006BC6 /* EmailLoginViewController.m */,
 				BAA073CF1BA8BBA600C1AECB /* RegisterUserViewController.h */,
 				BAA073D01BA8BBA600C1AECB /* RegisterUserViewController.m */,
+				BAA073D61BAA101E00C1AECB /* SelectOptionViewController.h */,
+				BAA073D71BAA101E00C1AECB /* SelectOptionViewController.m */,
 			);
 			name = Login/Register;
 			sourceTree = "<group>";
@@ -425,6 +430,7 @@
 				BAA863421B5441480016725C /* LoginViewController.m in Sources */,
 				BAA073D11BA8BBA600C1AECB /* RegisterUserViewController.m in Sources */,
 				BAA863161B543DED0016725C /* AppDelegate.m in Sources */,
+				BAA073D81BAA101E00C1AECB /* SelectOptionViewController.m in Sources */,
 				BA3AB1141B66C1D600EF2266 /* GuestSearchViewController.m in Sources */,
 				BA3AB11B1B67D2DB00EF2266 /* ProfileViewController.m in Sources */,
 				BAA863441B5441480016725C /* SearchViewController.m in Sources */,
