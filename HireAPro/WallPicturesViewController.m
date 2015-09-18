@@ -109,7 +109,8 @@
         
         
         //Build the view with the image and the comments
-        UIView *wallImageView = [[UIView alloc] initWithFrame:CGRectMake(10, originY, self.view.frame.size.width - 20 , 300)];
+        UIView *wallImageView = [[UIView alloc] initWithFrame:CGRectMake(10, originY, self.view.frame.size.width , 300)];
+        [wallImageView setBackgroundColor:[UIColor lightGrayColor]];
         
         //Add the image
         PFFile *image = (PFFile *)[wallObject objectForKey:KEY_IMAGE];
@@ -120,11 +121,13 @@
         
         UIImageView *userImage = [[UIImageView alloc] initWithImage:[UIImage imageWithData:image.getData]];
         
+//        [userImage setBackgroundColor:[UIColor redColor]];
+        
         if ([UIImage imageWithData:image.getData].size.width>[UIImage imageWithData:image.getData].size.height) {
 //            userImage.frame = CGRectMake(0, 0, wallImageView.frame.size.width, 200);
             
-            int yy=0;
-            int xx = [UIImage imageWithData:image.getData].size.width/300;
+            float yy=0;
+            float xx = [UIImage imageWithData:image.getData].size.width/self.view.frame.size.width;
             
             yy=[UIImage imageWithData:image.getData].size.height/xx;
             if (yy>200) {
@@ -135,10 +138,11 @@
                 yy=[UIImage imageWithData:image.getData].size.width/xx;
                 
                 
-                userImage.frame = CGRectMake((300-yy)/2, 0, yy, 200);
+                userImage.frame = CGRectMake((self.view.frame.size.width-yy)/2, 0, yy, 200);
+                NSLog(@"xx  %f yy %f",xx,yy);
                 
             }else{
-                userImage.frame = CGRectMake(0, 0, 300, yy);
+                userImage.frame = CGRectMake(0, 0, self.view.frame.size.width, yy);
             }
         }else{
             int yy=0;
@@ -146,7 +150,7 @@
             
             yy=[UIImage imageWithData:image.getData].size.width/xx;
             
-            userImage.frame = CGRectMake((300-yy)/2, 0, yy, 200);
+            userImage.frame = CGRectMake((self.view.frame.size.width-yy)/2, 0, yy, 200);
         }
 
         
@@ -158,18 +162,18 @@
         NSDateFormatter *df = [[NSDateFormatter alloc] init];
         [df setDateFormat:@"HH:mm dd/MM yyyy"];
         
-        UILabel *infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 210, wallImageView.frame.size.width,15)];
+        UILabel *infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 210, wallImageView.frame.size.width,15)];
         infoLabel.text = [NSString stringWithFormat:@"Uploaded by: %@, %@", [wallObject objectForKey:KEY_USER], [df stringFromDate:creationDate]];
         infoLabel.font = [UIFont fontWithName:@"Arial-ItalicMT" size:9];
-        infoLabel.textColor = [UIColor whiteColor];
+        infoLabel.textColor = [UIColor blackColor];
         infoLabel.backgroundColor = [UIColor clearColor];
         [wallImageView addSubview:infoLabel];
         
         //Add the comment
-        UILabel *commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 240, wallImageView.frame.size.width, 15)];
+        UILabel *commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 240, wallImageView.frame.size.width, 15)];
         commentLabel.text = [wallObject objectForKey:KEY_COMMENT];
         commentLabel.font = [UIFont fontWithName:@"ArialMT" size:13];
-        commentLabel.textColor = [UIColor whiteColor];
+        commentLabel.textColor = [UIColor blackColor];
         commentLabel.backgroundColor = [UIColor clearColor];
         [wallImageView addSubview:commentLabel];
         
