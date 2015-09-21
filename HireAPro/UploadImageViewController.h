@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UploadImageViewController : UIViewController <UIPickerViewDelegate>
+@interface UploadImageViewController : UIViewController <UIPickerViewDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 
 @property (nonatomic, strong) IBOutlet UIImageView *imgToUpload;

@@ -12,10 +12,10 @@
  
  */
 #import "UploadImageViewController.h"
-
 #import <Parse/Parse.h>
-
 #import "Constants.h"
+
+
 
 @interface UploadImageViewController ()
 
@@ -65,7 +65,8 @@
 
 -(IBAction)selectPicturePressed:(id)sender
 {
-    
+    [self showPicOptions:sender];
+    /*
     NSLog(@"selectPicturePressed");
     //Open a UIImagePickerController to select the picture
     UIImagePickerController *imgPicker = [[UIImagePickerController alloc] init];
@@ -73,7 +74,83 @@
     imgPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     [self.navigationController presentModalViewController:imgPicker animated:YES];
+     */
 }
+
+//}
+- (void) showPicOptions:(UIButton *)sender {
+    
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil
+                                                                             message:nil
+                                                                      preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action")
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:^(UIAlertAction *action)
+                                   {
+                                       NSLog(@"Cancel action");
+                                   }];
+    
+    UIAlertAction *takePhotoAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Take Photo", @"Take Photo action")
+                                                              style:UIAlertActionStyleDefault
+                                                            handler:^(UIAlertAction *action)
+                                      {
+                                          UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+                                          picker.delegate = self;
+                                          //picker.allowsEditing = YES;
+                                          picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                                          
+                                          [self presentViewController:picker animated:YES completion:NULL];
+                                          
+                                      }];
+    
+    UIAlertAction *photoLibraryAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Photo Library", @"Photo Library action")
+                                                                 style:UIAlertActionStyleDefault
+                                                               handler:^(UIAlertAction *action)
+                                         {
+                                             /*
+                                             UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+                                             picker.delegate = self;
+                                             picker.allowsEditing = YES;
+                                             picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                                             
+                                             [self presentViewController:picker animated:YES completion:NULL];
+                                             */
+                                             
+                                             UIImagePickerController *imgPicker = [[UIImagePickerController alloc] init];
+                                             imgPicker.delegate = self;
+                                             imgPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                                             
+                                             [self.navigationController presentModalViewController:imgPicker animated:YES];
+                                             
+                                             
+                                         }];
+/*
+    UIAlertAction *customIconsAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Custom Icons", @"Custom Icons action")
+                                                                style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction *action)
+                                        {
+                                            NSLog(@"Archive action");
+                                        }];
+  */
+    [alertController addAction:cancelAction];
+    [alertController addAction:takePhotoAction];
+    [alertController addAction:photoLibraryAction];
+    //[alertController addAction:customIconsAction];
+    
+    UIPopoverPresentationController *popover = alertController.popoverPresentationController;
+    if (popover)
+    {
+        popover.sourceView = sender;
+        popover.sourceRect = sender.bounds;
+        popover.permittedArrowDirections = UIPopoverArrowDirectionAny;
+    }
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+}
+
 
 -(IBAction)sendPressed:(id)sender
 {
@@ -223,10 +300,13 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)img editingInfo:(NSDictionary *)editInfo 
 {
     
-    [picker dismissModalViewControllerAnimated:YES];
+//    [picker dismissModalViewControllerAnimated:YES];
+     [picker dismissViewControllerAnimated:YES completion:NULL];
     
     //Place the image in the imageview
     self.imgToUpload.image = img;
+    
+    NSLog(@"1");
 }
 
 #pragma mark Error View
@@ -238,5 +318,50 @@
     [errorAlertView show];
 }
 
+#pragma mark - Image Picker Controller delegate methods
+/*
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    NSLog(@"2");
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    
+    
+    //UIImageView *imv = [[UIImageView alloc]initWithFrame:CGRectMake(((cell.frame.size.width-70)/2),20, 70, 70)];
+    //    imv.image=[UIImage imageNamed:imgName];
+    
+    
+    // imv.frame = CGRectMake(104, 106, 133, 133);
+    
+    // circle
+    
+    self.imgToUpload.image = chosenImage;
+    
+    self.imgToUpload.userInteractionEnabled = YES;
+
+    self.imgToUpload.contentMode = UIViewContentModeScaleAspectFit;
+    
+    //self.imgToUpload.layer.cornerRadius = (self.imgToUpload.frame.size.width / 2);
+    //self.imgToUpload.layer.borderWidth = 2.0f;
+    //self.imgToUpload.layer.borderColor = [UIColor grayColor].CGColor;
+    //self.imgToUpload.clipsToBounds = YES;
+    
+    //        imv.backgroundColor = [UIColor blueColor];
+    
+    
+    
+    
+    //
+    
+    
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+    
+}
+*/
+- (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
 
 @end

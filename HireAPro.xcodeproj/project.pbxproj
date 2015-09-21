@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA268A8F1BACF99B00CF48B1 /* likeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BA268A8E1BACF99B00CF48B1 /* likeButton.m */; settings = {ASSET_TAGS = (); }; };
 		BA3AB1141B66C1D600EF2266 /* GuestSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3AB1131B66C1D600EF2266 /* GuestSearchViewController.m */; };
 		BA3AB1171B66CB5900EF2266 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3AB1161B66CB5900EF2266 /* MeViewController.m */; };
 		BA3AB11B1B67D2DB00EF2266 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3AB11A1B67D2DB00EF2266 /* ProfileViewController.m */; };
@@ -58,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA268A8D1BACF99B00CF48B1 /* likeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = likeButton.h; sourceTree = "<group>"; };
+		BA268A8E1BACF99B00CF48B1 /* likeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = likeButton.m; sourceTree = "<group>"; };
 		BA3AB1121B66C1D600EF2266 /* GuestSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuestSearchViewController.h; sourceTree = "<group>"; };
 		BA3AB1131B66C1D600EF2266 /* GuestSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuestSearchViewController.m; sourceTree = "<group>"; };
 		BA3AB1151B66CB5900EF2266 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
@@ -177,6 +180,8 @@
 				BA3AB1201B69569600EF2266 /* Skills.m */,
 				BA3AB1251B6A791F00EF2266 /* Occupation.h */,
 				BA3AB1261B6A791F00EF2266 /* Occupation.m */,
+				BA268A8D1BACF99B00CF48B1 /* likeButton.h */,
+				BA268A8E1BACF99B00CF48B1 /* likeButton.m */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -432,6 +437,7 @@
 				BAA863161B543DED0016725C /* AppDelegate.m in Sources */,
 				BAA073D81BAA101E00C1AECB /* SelectOptionViewController.m in Sources */,
 				BA3AB1141B66C1D600EF2266 /* GuestSearchViewController.m in Sources */,
+				BA268A8F1BACF99B00CF48B1 /* likeButton.m in Sources */,
 				BA3AB11B1B67D2DB00EF2266 /* ProfileViewController.m in Sources */,
 				BAA863441B5441480016725C /* SearchViewController.m in Sources */,
 				BAA863131B543DED0016725C /* main.m in Sources */,
@@ -558,6 +564,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -581,6 +588,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

@@ -13,7 +13,7 @@
 {
     NSString * cUser ;
     NSString * cUserId ;
-
+    PFFile * cPic ;
 }
 @end
 
@@ -86,6 +86,7 @@
             
             // self.userTextField.text= [fbuser objectForKey:@"email"];
             cUser = self.txt_email.text;
+
             
             NSLog(@"logInWithUsernameInBackground %@   email:%@   ",user,self.txt_email.text);
             

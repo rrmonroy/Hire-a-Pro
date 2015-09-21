@@ -66,6 +66,7 @@ A Parse Framework User Object that is a local representation of a user persisted
 /// The username for the PFUser.
 @property (nonatomic, retain) NSString *username;
 
+
 /** 
  The password for the PFUser. This will not be filled in from the server with
  the password. It is only meant to be set.

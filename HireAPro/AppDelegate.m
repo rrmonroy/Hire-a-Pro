@@ -22,6 +22,7 @@
 @synthesize currentUser;
 @synthesize currentId;
 
+
 #define appID @"go8H1gJho40T0FqRegkOVhBPNzegGmSnro446ykN"
 #define clKey @"nJxOVa07Me7gETVZj0v1xNwogDbrYOsTRBt9iG9O"
 

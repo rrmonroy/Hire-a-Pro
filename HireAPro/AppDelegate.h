@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import <Parse/Parse.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -15,6 +16,8 @@
 @property (strong, nonatomic) NSString *currentUser;
 @property (strong, nonatomic) NSString *loginWith;
 @property (strong, nonatomic) NSString *currentId;
+
+
 
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
