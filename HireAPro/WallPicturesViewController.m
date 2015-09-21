@@ -237,7 +237,7 @@
 
         infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 17, 200,20)];
         infoLabel.text = [NSString stringWithFormat:@"%@", [df stringFromDate:creationDate]];
-        infoLabel.font = [UIFont fontWithName:@"Arial-ItalicMT" size:10asquery3];
+        infoLabel.font = [UIFont fontWithName:@"Arial-ItalicMT" size:10];
         infoLabel.textColor = [UIColor blackColor];
         infoLabel.backgroundColor = [UIColor clearColor];
         
