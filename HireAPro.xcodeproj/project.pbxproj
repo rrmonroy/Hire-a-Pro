@@ -46,6 +46,9 @@
 		BAA863831B54453D0016725C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA863821B54453D0016725C /* Foundation.framework */; };
 		BAA863851B5446320016725C /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA863841B5446320016725C /* libz.1.1.3.dylib */; };
 		BAA863871B5446590016725C /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA863861B5446590016725C /* AddressBook.framework */; };
+		BAB02EBE1BB23BF500A2A276 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB02EBD1BB23BF500A2A276 /* KeychainItemWrapper.m */; settings = {ASSET_TAGS = (); }; };
+		BAB02EC11BB23FB300A2A276 /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB02EC01BB23FB300A2A276 /* ProfileTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		BAB02EC41BB2432C00A2A276 /* ProfileUITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB02EC31BB2432C00A2A276 /* ProfileUITableView.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +126,12 @@
 		BAA863821B54453D0016725C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BAA863841B5446320016725C /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		BAA863861B5446590016725C /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		BAB02EBC1BB23BF500A2A276 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		BAB02EBD1BB23BF500A2A276 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		BAB02EBF1BB23FB300A2A276 /* ProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewController.h; sourceTree = "<group>"; };
+		BAB02EC01BB23FB300A2A276 /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
+		BAB02EC21BB2432C00A2A276 /* ProfileUITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileUITableView.h; path = HireAPro/ProfileUITableView.h; sourceTree = "<group>"; };
+		BAB02EC31BB2432C00A2A276 /* ProfileUITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileUITableView.m; path = HireAPro/ProfileUITableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +198,8 @@
 		BAA863041B543DED0016725C = {
 			isa = PBXGroup;
 			children = (
+				BAB02EC21BB2432C00A2A276 /* ProfileUITableView.h */,
+				BAB02EC31BB2432C00A2A276 /* ProfileUITableView.m */,
 				BAA8630F1B543DED0016725C /* HireAPro */,
 				BAA8636D1B54443D0016725C /* Frameworks */,
 				BAA863291B543DED0016725C /* HireAProTests */,
@@ -208,6 +219,8 @@
 		BAA8630F1B543DED0016725C /* HireAPro */ = {
 			isa = PBXGroup;
 			children = (
+				BAB02EBC1BB23BF500A2A276 /* KeychainItemWrapper.h */,
+				BAB02EBD1BB23BF500A2A276 /* KeychainItemWrapper.m */,
 				BA3AB1181B67D2BB00EF2266 /* Profile */,
 				BAA4B0891B59883200F60E4F /* Class */,
 				BAA863521B5442A40016725C /* Constants.h */,
@@ -218,6 +231,8 @@
 				BAA863141B543DED0016725C /* AppDelegate.h */,
 				BAA863151B543DED0016725C /* AppDelegate.m */,
 				BAA863481B5441650016725C /* main.storyboard */,
+				BAB02EBF1BB23FB300A2A276 /* ProfileTableViewController.h */,
+				BAB02EC01BB23FB300A2A276 /* ProfileTableViewController.m */,
 				BAA8631D1B543DED0016725C /* Images.xcassets */,
 				BAA8631F1B543DED0016725C /* LaunchScreen.xib */,
 				BAA863101B543DED0016725C /* Supporting Files */,
@@ -430,6 +445,7 @@
 				BAA863451B5441480016725C /* UploadImageViewController.m in Sources */,
 				BAA4B0881B59882B00F60E4F /* Person.m in Sources */,
 				BAA863431B5441480016725C /* RegisterViewController.m in Sources */,
+				BAB02EC11BB23FB300A2A276 /* ProfileTableViewController.m in Sources */,
 				BA6A3BF01B7A7F5100006BC6 /* EmailLoginViewController.m in Sources */,
 				BA3AB1171B66CB5900EF2266 /* MeViewController.m in Sources */,
 				BAA863421B5441480016725C /* LoginViewController.m in Sources */,
@@ -441,10 +457,12 @@
 				BA3AB11B1B67D2DB00EF2266 /* ProfileViewController.m in Sources */,
 				BAA863441B5441480016725C /* SearchViewController.m in Sources */,
 				BAA863131B543DED0016725C /* main.m in Sources */,
+				BAB02EC41BB2432C00A2A276 /* ProfileUITableView.m in Sources */,
 				BA3AB1271B6A791F00EF2266 /* Occupation.m in Sources */,
 				BA3AB11E1B691EE900EF2266 /* ServicesTableViewController.m in Sources */,
 				BA3AB1211B69569600EF2266 /* Skills.m in Sources */,
 				BAA073CE1BA1D0F500C1AECB /* ShowResultsViewController.m in Sources */,
+				BAB02EBE1BB23BF500A2A276 /* KeychainItemWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

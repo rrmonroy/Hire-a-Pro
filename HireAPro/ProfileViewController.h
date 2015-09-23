@@ -27,5 +27,6 @@
     @property (strong, nonatomic) NSString *user;
 - (IBAction)Save:(id)sender;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+- (IBAction)btn_cancel:(id)sender;
 
 @end

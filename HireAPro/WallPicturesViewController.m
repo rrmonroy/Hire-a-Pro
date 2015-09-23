@@ -146,13 +146,37 @@
     //For every wall element, put a view in the scroll
     int originY = 10;
     
-    likeButton *btn_like = [likeButton buttonWithType:UIButtonTypeRoundedRect];
-    [btn_like addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [btn_like setTitle:@"Like" forState:UIControlStateNormal];
+    likeButton *btn_like;
+//    = [likeButton buttonWithType:UIButtonTypeRoundedRect];
+  //  [btn_like addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+   // [btn_like setTitle:@"Like" forState:UIControlStateNormal];
     
     for (PFObject *wallObject in self.wallObjectsArray){
         //Get Likes
         //PFQuery *query3 = [PFUser query];
+        
+        btn_like = [likeButton buttonWithType:UIButtonTypeRoundedRect];
+        [btn_like addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+
+        
+        PFQuery *query5 = [PFQuery queryWithClassName:@"Likes"];
+        [query5 whereKey:@"WallId" equalTo:wallObject.objectId];
+        [query5 whereKey:@"UserId" equalTo:user];
+        NSArray* scoreArray = [query5 findObjects];
+        if (scoreArray.count>0)
+            [btn_like setTitle:@"Liked" forState:UIControlStateNormal];
+        else
+            [btn_like setTitle:@"Like" forState:UIControlStateNormal];
+
+        // Machine row will be an object inside the retrieved product row.
+  //          PFObject *machine = wallObject[@"machine"];
+        
+        NSLog(@"Likes: %@", scoreArray);
+
+        
+        
+        
+/*
         PFQuery *query3 = [PFQuery queryWithClassName:@"Likes"  ];
         
 
@@ -187,6 +211,7 @@
         }];
         NSLog(@"3----");
         
+        */
         
         //Wall Image Height
         //Add the image
@@ -298,7 +323,7 @@
         
         
 
-        btn_like.frame = CGRectMake(10.0, 210.0, 80.0, 20.0);
+        btn_like.frame = CGRectMake(15.0, yy+50, 50.0, 20.0);
         
         [btn_like setUserData:[NSString stringWithFormat:@"%@",wallObject.objectId]];
         
@@ -312,7 +337,7 @@
         
         
         //Add the comment
-        UILabel *commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, yy+50, wallImageView.frame.size.width, 15)];
+        UILabel *commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(75, yy+50, wallImageView.frame.size.width-85, 15)];
         commentLabel.text = [wallObject objectForKey:KEY_COMMENT];
         commentLabel.font = [UIFont fontWithName:@"ArialMT" size:13];
         commentLabel.textColor = [UIColor blackColor];
@@ -357,7 +382,7 @@
     
     //Prepare the query to get all the images in descending order
     PFQuery *query = [PFQuery queryWithClassName:WALL_OBJECT  ];
-    
+//    [query includeKey:@"WallId"];
     [query whereKey:@"user" equalTo:user];
     
     [query orderByDescending:KEY_CREATION_DATE];
@@ -368,6 +393,8 @@
             //Everything was correct, put the new objects and load the wall
             self.wallObjectsArray = nil;
             self.wallObjectsArray = [[NSArray alloc] initWithArray:objects];
+            
+
             
             [self loadWallViews];
             

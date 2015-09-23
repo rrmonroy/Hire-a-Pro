@@ -373,7 +373,7 @@
                             
                             
                             [self showErrorView:@"Profile has been updated"];
-                            
+                                [self.navigationController popViewControllerAnimated:YES];
                         }
                         else{
                             NSString *errorString = [[error userInfo] objectForKey:@"error"];
@@ -532,4 +532,9 @@
     
 }
 
+- (IBAction)btn_cancel:(id)sender {
+    NSLog(@"1");
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

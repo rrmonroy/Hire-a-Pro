@@ -238,11 +238,6 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Wall" id="JtW-HX-bYl">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="VxS-Qh-I2N">
-                            <connections>
-                                <action selector="logoutPressed:" destination="G9U-pQ-h9N" id="wSf-MR-sJe"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Upload" id="ppI-hX-PpA">
                             <connections>
                                 <segue destination="Jk2-SK-qws" kind="push" id="YHq-x8-XvX"/>
@@ -260,7 +255,7 @@
         <!--Me-->
         <scene sceneID="NKu-cE-xzv">
             <objects>
-                <tableViewController id="AoA-uN-fkD" sceneMemberID="viewController">
+                <tableViewController id="AoA-uN-fkD" customClass="ProfileTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="piz-VM-nvn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -284,7 +279,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="vkz-s5-YDc" kind="show" id="5av-LB-vzE"/>
+                                            <segue destination="Kd1-X8-dm1" kind="show" id="Iye-iC-1kq"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="YRJ-qJ-VOI">
@@ -421,12 +416,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Log Out" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUb-qH-Mr9">
-                                                    <rect key="frame" x="28" y="11" width="328" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.96470594409999999" green="0.0" blue="0.050980396570000003" alpha="1" colorSpace="deviceRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fMo-Z4-00P">
+                                                    <rect key="frame" x="37" y="5" width="308" height="30"/>
+                                                    <state key="normal" title="LogOut"/>
+                                                    <connections>
+                                                        <action selector="logout:" destination="AoA-uN-fkD" eventType="touchUpInside" id="wvt-zs-WJK"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -434,8 +430,8 @@
                             </tableViewSection>
                         </sections>
                         <connections>
-                            <outlet property="dataSource" destination="AoA-uN-fkD" id="FJA-qd-cc3"/>
-                            <outlet property="delegate" destination="AoA-uN-fkD" id="LVy-8c-K9a"/>
+                            <outlet property="dataSource" destination="AoA-uN-fkD" id="Tpd-Lc-Tm7"/>
+                            <outlet property="delegate" destination="AoA-uN-fkD" id="V3J-eo-5Ta"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Me" id="L0D-cF-bic"/>
@@ -573,6 +569,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="KoQ-iO-4e6">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="mPC-Ub-Qnm">
+                            <connections>
+                                <action selector="btn_cancel:" destination="Kd1-X8-dm1" id="cBx-el-Pm0"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="HRt-po-UAJ">
                             <connections>
                                 <action selector="Save:" destination="Kd1-X8-dm1" id="nuh-Ch-Wai"/>
@@ -595,7 +596,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P4i-EB-QWN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4710.5" y="401.5"/>
+            <point key="canvasLocation" x="4116" y="399"/>
         </scene>
         <!--Upload-->
         <scene sceneID="9BZ-ln-udz">
@@ -1332,13 +1333,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Search" id="t0b-0A-1Po">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="21i-qR-4aO">
-                            <connections>
-                                <action selector="LogOut:" destination="Mh5-VO-W4I" id="EzX-cG-drZ"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Search" id="t0b-0A-1Po"/>
                     <connections>
                         <outlet property="txt_miles" destination="z2l-rt-T3s" id="7kU-8b-2IV"/>
                         <outlet property="txt_occupation" destination="4Ko-D1-FgZ" id="bK0-fm-iqT"/>
@@ -1471,24 +1466,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Kg-g3-wKo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2923.5" y="372.5"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="3uS-Xq-6VV">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vkz-s5-YDc" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pXv-by-VmE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Kd1-X8-dm1" kind="relationship" relationship="rootViewController" id="yad-lW-bGF"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ePD-QR-Nwg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4122.5" y="495.5"/>
         </scene>
         <!--Services Table View Controller-->
         <scene sceneID="3lu-uv-1Ro">
@@ -1718,8 +1695,8 @@
         <image name="hire a pro home.png" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xaj-L3-flg"/>
+        <segue reference="OOw-ij-Mh7"/>
         <segue reference="lKC-VT-7Iz"/>
-        <segue reference="LKX-JK-KrX"/>
+        <segue reference="9mS-SN-kZF"/>
     </inferredMetricsTieBreakers>
 </document>

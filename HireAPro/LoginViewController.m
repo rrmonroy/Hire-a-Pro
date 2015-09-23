@@ -9,8 +9,10 @@
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
 #import "WallPicturesViewController.h"
-
 #import <Parse/Parse.h>
+
+#import "KeychainItemWrapper.h"
+
 @interface LoginViewController (){
 
     NSString * cUser ;
@@ -46,6 +48,12 @@
         NSLog(@"viewDidLoad");
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
+
+   // [SSKeychain setPassword:@"AnyPassword" forService:@"AnyService" account:@"AnyUser"]
+
+//    NSString *password = [SSKeychain passwordForService:@"AnyService" account:@"AnyUser"];
+    
     
     //Delete me
 //    self.userTextField.text = @"222";
@@ -66,6 +74,35 @@
     
   //  [self toggleHiddenState:YES];
 //    self.lblLoginStatus.text = @"";
+    
+    
+    
+    KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"hireapro" accessGroup:nil];
+    
+    NSData *pass =[keychain objectForKey:(__bridge id)(kSecValueData)];
+    NSString *passworddecoded = [[NSString alloc] initWithData:pass
+                                                      encoding:NSUTF8StringEncoding];
+    
+    NSString *username = [keychain objectForKey:(id)kSecAttrAccount];
+    
+    NSLog(@"login %@  %@",username,passworddecoded);
+    
+    
+    if (username.length>0) {
+        
+        [PFUser logInWithUsernameInBackground:username password:passworddecoded block:^(PFUser *user, NSError *error) {
+            if (user) {
+                //Open the wall
+                
+                // self.userTextField.text= [fbuser objectForKey:@"email"];
+                cUser = username;
+                [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
+            }
+            
+        }];
+        
+    }
+    
     
 }
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView{

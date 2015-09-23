@@ -8,6 +8,7 @@
 
 #import "EmailLoginViewController.h"
 #import <Parse/Parse.h>
+#import "KeychainItemWrapper.h"
 
 @interface EmailLoginViewController ()
 {
@@ -89,7 +90,10 @@
 
             
             NSLog(@"logInWithUsernameInBackground %@   email:%@   ",user,self.txt_email.text);
-            
+
+            KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"hireapro" accessGroup:nil];
+            [keychain setObject:self.txt_email.text forKey:(id)kSecAttrAccount];
+            [keychain setObject:self.txt_pass.text forKey:(id)kSecValueData];
             
             
             [self performSegueWithIdentifier:@"EmailLoginSuccesful" sender:self];
