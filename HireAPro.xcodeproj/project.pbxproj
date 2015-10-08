@@ -33,7 +33,6 @@
 		BAA863501B5442900016725C /* hire a pro home.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA8634E1B5442900016725C /* hire a pro home.png */; };
 		BAA863511B5442900016725C /* hireapro120.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA8634F1B5442900016725C /* hireapro120.png */; };
 		BAA863541B54441C0016725C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA863531B54441C0016725C /* SystemConfiguration.framework */; };
-		BAA8636F1B5444A00016725C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8636E1B5444A00016725C /* Parse.framework */; };
 		BAA863721B5444B20016725C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA863701B5444B20016725C /* FacebookSDK.framework */; };
 		BAA863731B5444B20016725C /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAA863711B5444B20016725C /* FBUserSettingsViewResources.bundle */; };
 		BAA863751B5444EC0016725C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA863741B5444EC0016725C /* CoreGraphics.framework */; };
@@ -49,6 +48,14 @@
 		BAB02EBE1BB23BF500A2A276 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB02EBD1BB23BF500A2A276 /* KeychainItemWrapper.m */; settings = {ASSET_TAGS = (); }; };
 		BAB02EC11BB23FB300A2A276 /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB02EC01BB23FB300A2A276 /* ProfileTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		BAB02EC41BB2432C00A2A276 /* ProfileUITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB02EC31BB2432C00A2A276 /* ProfileUITableView.m */; settings = {ASSET_TAGS = (); }; };
+		BAB02EFE1BC6071100A2A276 /* WALLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB02EFD1BC6071100A2A276 /* WALLViewController.m */; settings = {ASSET_TAGS = (); }; };
+		BAB02F031BC60D5300A2A276 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB02EFF1BC60D5300A2A276 /* Default-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
+		BAB02F041BC60D5300A2A276 /* placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAB02F001BC60D5300A2A276 /* placeholder.jpg */; settings = {ASSET_TAGS = (); }; };
+		BAB02F051BC60D5300A2A276 /* photo-frame.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB02F011BC60D5300A2A276 /* photo-frame.png */; settings = {ASSET_TAGS = (); }; };
+		BAB02F061BC60D5300A2A276 /* photo-frame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB02F021BC60D5300A2A276 /* photo-frame@2x.png */; settings = {ASSET_TAGS = (); }; };
+		BAB02F081BC6147800A2A276 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB02F071BC6147800A2A276 /* CoreLocation.framework */; };
+		BAB02F0A1BC616F400A2A276 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB02F091BC616F400A2A276 /* StoreKit.framework */; };
+		BAB02F101BC618D600A2A276 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB02F0F1BC618D600A2A276 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,7 +120,6 @@
 		BAA8634F1B5442900016725C /* hireapro120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hireapro120.png; sourceTree = "<group>"; };
 		BAA863521B5442A40016725C /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		BAA863531B54441C0016725C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		BAA8636E1B5444A00016725C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		BAA863701B5444B20016725C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		BAA863711B5444B20016725C /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
 		BAA863741B5444EC0016725C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -132,6 +138,15 @@
 		BAB02EC01BB23FB300A2A276 /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
 		BAB02EC21BB2432C00A2A276 /* ProfileUITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileUITableView.h; path = HireAPro/ProfileUITableView.h; sourceTree = "<group>"; };
 		BAB02EC31BB2432C00A2A276 /* ProfileUITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileUITableView.m; path = HireAPro/ProfileUITableView.m; sourceTree = "<group>"; };
+		BAB02EFC1BC6071100A2A276 /* WALLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WALLViewController.h; sourceTree = "<group>"; };
+		BAB02EFD1BC6071100A2A276 /* WALLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WALLViewController.m; sourceTree = "<group>"; };
+		BAB02EFF1BC60D5300A2A276 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		BAB02F001BC60D5300A2A276 /* placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholder.jpg; sourceTree = "<group>"; };
+		BAB02F011BC60D5300A2A276 /* photo-frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-frame.png"; sourceTree = "<group>"; };
+		BAB02F021BC60D5300A2A276 /* photo-frame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-frame@2x.png"; sourceTree = "<group>"; };
+		BAB02F071BC6147800A2A276 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		BAB02F091BC616F400A2A276 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		BAB02F0F1BC618D600A2A276 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,9 +154,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAA863871B5446590016725C /* AddressBook.framework in Frameworks */,
-				BAA863851B5446320016725C /* libz.1.1.3.dylib in Frameworks */,
+				BAB02F0A1BC616F400A2A276 /* StoreKit.framework in Frameworks */,
 				BAA863751B5444EC0016725C /* CoreGraphics.framework in Frameworks */,
+				BAB02F081BC6147800A2A276 /* CoreLocation.framework in Frameworks */,
+				BAA863871B5446590016725C /* AddressBook.framework in Frameworks */,
+				BAB02F101BC618D600A2A276 /* Parse.framework in Frameworks */,
+				BAA863851B5446320016725C /* libz.1.1.3.dylib in Frameworks */,
 				BAA863831B54453D0016725C /* Foundation.framework in Frameworks */,
 				BAA863811B54452C0016725C /* UIKit.framework in Frameworks */,
 				BAA8637F1B54451F0016725C /* QuartzCore.framework in Frameworks */,
@@ -149,7 +167,6 @@
 				BAA8637B1B54450F0016725C /* AudioToolbox.framework in Frameworks */,
 				BAA863791B5445000016725C /* CFNetwork.framework in Frameworks */,
 				BAA863771B5444F70016725C /* MobileCoreServices.framework in Frameworks */,
-				BAA8636F1B5444A00016725C /* Parse.framework in Frameworks */,
 				BAA863541B54441C0016725C /* SystemConfiguration.framework in Frameworks */,
 				BAA863721B5444B20016725C /* FacebookSDK.framework in Frameworks */,
 			);
@@ -231,6 +248,8 @@
 				BAA863141B543DED0016725C /* AppDelegate.h */,
 				BAA863151B543DED0016725C /* AppDelegate.m */,
 				BAA863481B5441650016725C /* main.storyboard */,
+				BAB02EFC1BC6071100A2A276 /* WALLViewController.h */,
+				BAB02EFD1BC6071100A2A276 /* WALLViewController.m */,
 				BAB02EBF1BB23FB300A2A276 /* ProfileTableViewController.h */,
 				BAB02EC01BB23FB300A2A276 /* ProfileTableViewController.m */,
 				BAA8631D1B543DED0016725C /* Images.xcassets */,
@@ -310,6 +329,10 @@
 		BAA8634D1B5442360016725C /* img */ = {
 			isa = PBXGroup;
 			children = (
+				BAB02EFF1BC60D5300A2A276 /* Default-568h@2x.png */,
+				BAB02F001BC60D5300A2A276 /* placeholder.jpg */,
+				BAB02F011BC60D5300A2A276 /* photo-frame.png */,
+				BAB02F021BC60D5300A2A276 /* photo-frame@2x.png */,
 				BAA8634E1B5442900016725C /* hire a pro home.png */,
 				BAA8634F1B5442900016725C /* hireapro120.png */,
 			);
@@ -319,6 +342,9 @@
 		BAA8636D1B54443D0016725C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BAB02F0F1BC618D600A2A276 /* Parse.framework */,
+				BAB02F091BC616F400A2A276 /* StoreKit.framework */,
+				BAB02F071BC6147800A2A276 /* CoreLocation.framework */,
 				BAA863861B5446590016725C /* AddressBook.framework */,
 				BAA863841B5446320016725C /* libz.1.1.3.dylib */,
 				BAA863821B54453D0016725C /* Foundation.framework */,
@@ -331,7 +357,6 @@
 				BAA863741B5444EC0016725C /* CoreGraphics.framework */,
 				BAA863701B5444B20016725C /* FacebookSDK.framework */,
 				BAA863711B5444B20016725C /* FBUserSettingsViewResources.bundle */,
-				BAA8636E1B5444A00016725C /* Parse.framework */,
 				BAA863531B54441C0016725C /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
@@ -418,11 +443,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAB02F061BC60D5300A2A276 /* photo-frame@2x.png in Resources */,
 				BAA863511B5442900016725C /* hireapro120.png in Resources */,
 				BAA863501B5442900016725C /* hire a pro home.png in Resources */,
 				BAA863491B5441650016725C /* main.storyboard in Resources */,
 				BAA863731B5444B20016725C /* FBUserSettingsViewResources.bundle in Resources */,
+				BAB02F051BC60D5300A2A276 /* photo-frame.png in Resources */,
+				BAB02F041BC60D5300A2A276 /* placeholder.jpg in Resources */,
 				BAA8631E1B543DED0016725C /* Images.xcassets in Resources */,
+				BAB02F031BC60D5300A2A276 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +491,7 @@
 				BA3AB11E1B691EE900EF2266 /* ServicesTableViewController.m in Sources */,
 				BA3AB1211B69569600EF2266 /* Skills.m in Sources */,
 				BAA073CE1BA1D0F500C1AECB /* ShowResultsViewController.m in Sources */,
+				BAB02EFE1BC6071100A2A276 /* WALLViewController.m in Sources */,
 				BAB02EBE1BB23BF500A2A276 /* KeychainItemWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
