@@ -241,6 +241,9 @@
 
     }else{
             [iliked setObjId:@""];
+            [iliked setImage:[UIImage imageNamed:@"Gray_Like.png"] forState:UIControlStateNormal];
+            [iliked setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        
     }
        // [btn_like setTitle:@"Liked" forState:UIControlStateNormal];
 //    else
