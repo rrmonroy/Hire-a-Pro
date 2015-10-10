@@ -10,7 +10,8 @@
 
 @interface likeButton : UIButton {
     NSString * userData;
+    NSString * objId;
 }
     @property (nonatomic, readwrite, retain) NSString * userData;
-
+    @property (nonatomic, readwrite, retain) NSString * objId;
 @end

@@ -19,6 +19,6 @@
 */
 
     @synthesize userData;
-
+    @synthesize objId;
 
 @end

@@ -163,8 +163,10 @@
         [query5 whereKey:@"WallId" equalTo:wallObject.objectId];
         [query5 whereKey:@"UserId" equalTo:user];
         NSArray* scoreArray = [query5 findObjects];
-        if (scoreArray.count>0)
+        if (scoreArray.count>0){
             [btn_like setTitle:@"Liked" forState:UIControlStateNormal];
+            
+        }
         else
             [btn_like setTitle:@"Like" forState:UIControlStateNormal];
 

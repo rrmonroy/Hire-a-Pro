@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		BA268A8F1BACF99B00CF48B1 /* likeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BA268A8E1BACF99B00CF48B1 /* likeButton.m */; settings = {ASSET_TAGS = (); }; };
+		BA3A3F1C1BC8B0C2002830A6 /* Black_Like.png in Resources */ = {isa = PBXBuildFile; fileRef = BA3A3F1A1BC8B0C2002830A6 /* Black_Like.png */; settings = {ASSET_TAGS = (); }; };
+		BA3A3F1D1BC8B0C2002830A6 /* Gray_Like.png in Resources */ = {isa = PBXBuildFile; fileRef = BA3A3F1B1BC8B0C2002830A6 /* Gray_Like.png */; settings = {ASSET_TAGS = (); }; };
+		BA3A3F1F1BC8B247002830A6 /* Orange_Like.png in Resources */ = {isa = PBXBuildFile; fileRef = BA3A3F1E1BC8B247002830A6 /* Orange_Like.png */; settings = {ASSET_TAGS = (); }; };
 		BA3AB1141B66C1D600EF2266 /* GuestSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3AB1131B66C1D600EF2266 /* GuestSearchViewController.m */; };
 		BA3AB1171B66CB5900EF2266 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3AB1161B66CB5900EF2266 /* MeViewController.m */; };
 		BA3AB11B1B67D2DB00EF2266 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3AB11A1B67D2DB00EF2266 /* ProfileViewController.m */; };
@@ -71,6 +74,9 @@
 /* Begin PBXFileReference section */
 		BA268A8D1BACF99B00CF48B1 /* likeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = likeButton.h; sourceTree = "<group>"; };
 		BA268A8E1BACF99B00CF48B1 /* likeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = likeButton.m; sourceTree = "<group>"; };
+		BA3A3F1A1BC8B0C2002830A6 /* Black_Like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Black_Like.png; sourceTree = "<group>"; };
+		BA3A3F1B1BC8B0C2002830A6 /* Gray_Like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gray_Like.png; sourceTree = "<group>"; };
+		BA3A3F1E1BC8B247002830A6 /* Orange_Like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Orange_Like.png; sourceTree = "<group>"; };
 		BA3AB1121B66C1D600EF2266 /* GuestSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuestSearchViewController.h; sourceTree = "<group>"; };
 		BA3AB1131B66C1D600EF2266 /* GuestSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuestSearchViewController.m; sourceTree = "<group>"; };
 		BA3AB1151B66CB5900EF2266 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
@@ -189,6 +195,8 @@
 				BA3AB1161B66CB5900EF2266 /* MeViewController.m */,
 				BA3AB1191B67D2DB00EF2266 /* ProfileViewController.h */,
 				BA3AB11A1B67D2DB00EF2266 /* ProfileViewController.m */,
+				BAB02EBF1BB23FB300A2A276 /* ProfileTableViewController.h */,
+				BAB02EC01BB23FB300A2A276 /* ProfileTableViewController.m */,
 				BA3AB11C1B691EE900EF2266 /* ServicesTableViewController.h */,
 				BA3AB11D1B691EE900EF2266 /* ServicesTableViewController.m */,
 				BA3AB1221B6A76B600EF2266 /* OccupationTableViewController.h */,
@@ -248,10 +256,6 @@
 				BAA863141B543DED0016725C /* AppDelegate.h */,
 				BAA863151B543DED0016725C /* AppDelegate.m */,
 				BAA863481B5441650016725C /* main.storyboard */,
-				BAB02EFC1BC6071100A2A276 /* WALLViewController.h */,
-				BAB02EFD1BC6071100A2A276 /* WALLViewController.m */,
-				BAB02EBF1BB23FB300A2A276 /* ProfileTableViewController.h */,
-				BAB02EC01BB23FB300A2A276 /* ProfileTableViewController.m */,
 				BAA8631D1B543DED0016725C /* Images.xcassets */,
 				BAA8631F1B543DED0016725C /* LaunchScreen.xib */,
 				BAA863101B543DED0016725C /* Supporting Files */,
@@ -309,6 +313,8 @@
 				BAA8633D1B5441480016725C /* UploadImageViewController.m */,
 				BAA863401B5441480016725C /* WallPicturesViewController.h */,
 				BAA863411B5441480016725C /* WallPicturesViewController.m */,
+				BAB02EFC1BC6071100A2A276 /* WALLViewController.h */,
+				BAB02EFD1BC6071100A2A276 /* WALLViewController.m */,
 			);
 			name = Wall;
 			sourceTree = "<group>";
@@ -329,6 +335,9 @@
 		BAA8634D1B5442360016725C /* img */ = {
 			isa = PBXGroup;
 			children = (
+				BA3A3F1E1BC8B247002830A6 /* Orange_Like.png */,
+				BA3A3F1A1BC8B0C2002830A6 /* Black_Like.png */,
+				BA3A3F1B1BC8B0C2002830A6 /* Gray_Like.png */,
 				BAB02EFF1BC60D5300A2A276 /* Default-568h@2x.png */,
 				BAB02F001BC60D5300A2A276 /* placeholder.jpg */,
 				BAB02F011BC60D5300A2A276 /* photo-frame.png */,
@@ -445,11 +454,14 @@
 			files = (
 				BAB02F061BC60D5300A2A276 /* photo-frame@2x.png in Resources */,
 				BAA863511B5442900016725C /* hireapro120.png in Resources */,
+				BA3A3F1F1BC8B247002830A6 /* Orange_Like.png in Resources */,
 				BAA863501B5442900016725C /* hire a pro home.png in Resources */,
 				BAA863491B5441650016725C /* main.storyboard in Resources */,
+				BA3A3F1C1BC8B0C2002830A6 /* Black_Like.png in Resources */,
 				BAA863731B5444B20016725C /* FBUserSettingsViewResources.bundle in Resources */,
 				BAB02F051BC60D5300A2A276 /* photo-frame.png in Resources */,
 				BAB02F041BC60D5300A2A276 /* placeholder.jpg in Resources */,
+				BA3A3F1D1BC8B0C2002830A6 /* Gray_Like.png in Resources */,
 				BAA8631E1B543DED0016725C /* Images.xcassets in Resources */,
 				BAB02F031BC60D5300A2A276 /* Default-568h@2x.png in Resources */,
 			);
