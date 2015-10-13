@@ -1,7 +1,7 @@
 /*
  File: KeychainItemWrapper.m
  Abstract:
- Objective-C wrapper for accessing a single keychain item.
+ Objective-C wrapper for access ing a single keychain item.
  
  Version: 1.2 - ARCified
  
