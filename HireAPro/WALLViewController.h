@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 @interface WALLViewController : PFQueryTableViewController
     @property (strong, nonatomic) NSString *user;
-- (IBAction)btn_like:(id)sender;
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+    @property (strong, nonatomic) NSString *userProfile;
+    @property (strong, nonatomic) NSString *viewType;
+//    - (IBAction)btn_like:(id)sender;
+    @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @end

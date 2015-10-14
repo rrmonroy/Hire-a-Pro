@@ -11,6 +11,7 @@
 #import "Constants.h"
 #import "Person.h"
 #import "LoginViewController.h"
+#import "WALLViewController.h"
 
 
 @interface ShowResultsViewController ()
@@ -20,7 +21,7 @@
 
 @property (nonatomic, strong) FBLoginView* loginView;
 
--(void)loadWallViews;
+//-(void)loadWallViews;
 -(void)showErrorView:errorString;
 
 @end
@@ -35,7 +36,7 @@
 
 @synthesize searchResults;
 @synthesize activityIndicator = _loadingSpinner;
-
+@synthesize userSelected;
 
 @synthesize resutlArray = _resutlArray;
 -(void)showErrorView:(NSString *)errorMsg{
@@ -47,7 +48,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
+    userSelected=@"";
     
     searchResults = [[NSMutableArray alloc] init];
     
@@ -85,6 +86,7 @@
                         person.name = [resutlUsers objectForKey:@"FirstName"];
                         person.lastname = [resutlUsers objectForKey:@"LastName"];
                         person.email = [resutlUsers objectForKey:@"email"];
+                        person.username = [resutlUsers objectForKey:@"username"];
                         
                          person.profPicture = (PFFile *)[resutlUsers objectForKey:@"ProfPicture"];
                         
@@ -276,6 +278,36 @@
                      completion:nil];
     
 }
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+
+    if ([segue.identifier isEqualToString:@"showPortfolio"])
+    {
+        
+        WALLViewController *destViewController = (WALLViewController*)segue.destinationViewController;
+        
+//        destViewController.user = userSelected;
+        destViewController.viewType=@"Search";
+        destViewController.userProfile=userSelected;
+        
+        NSLog(@"prepareForSegue :: user Selected %@",userSelected);
+        
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+
+    Person *person = [searchResults objectAtIndex:indexPath.row];
+    userSelected=person.username;
+    
+    NSLog(@"user Selected %@",userSelected);
+    
+    [self performSegueWithIdentifier:@"showPortfolio" sender:self];
+}
+
+
 
 
 @end

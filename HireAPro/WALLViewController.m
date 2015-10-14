@@ -19,6 +19,8 @@
     
 }
     @synthesize user;
+    @synthesize viewType;
+    @synthesize userProfile;
 
 - (id)initWithCoder:(NSCoder *)aCoder
 {
@@ -39,7 +41,7 @@
         self.paginationEnabled = YES;
         
         // The number of objects to show per page
-        self.objectsPerPage = 3;
+        self.objectsPerPage = 10;
     }
     return self;
 }
@@ -47,17 +49,24 @@
 - (void)viewDidLoad {
     
     // Do any additional setup after loading the view.
+
     
     AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    
-    NSLog(@"viewDidLoad - wallPics - pass %@",    app.currentUser);
-    
+    // NSLog(@"viewDidLoad - wallPics - pass %@",    app.currentUser);
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
-    
     user = app.currentUser;
+
+    
+    if (![viewType isEqualToString:@"Search"]) {
+        userProfile = app.currentUser;
+    }
+
+    
+    NSLog(@"current user: %@",userProfile);
+    
     
     PFQuery *query3 = [PFUser query];
-//    [query3 whereKey:@"username" equalTo:user]; // find all the women
+    [query3 whereKey:@"username" equalTo:userProfile];
     NSArray *users = [query3 findObjects];
     
     for (PFUser *resutlUsers in users){
@@ -85,7 +94,7 @@
 - (PFQuery *)queryForTable
 {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    [query whereKey:@"user" equalTo:user];
+    [query whereKey:@"user" equalTo:userProfile];
     
     // If no objects are loaded in memory, we look to the cache first to fill the table
     // and then subsequently do a query against the network.
@@ -178,17 +187,17 @@
     
     
     
-    NSLog(@"---> %@",[object objectForKey:@"user"]);
+    //NSLog(@"---> %@",[object objectForKey:@"user"]);
     
     UILabel *infoLabel = (UILabel*) [cell viewWithTag:101];
-    infoLabel.text = [NSString stringWithFormat:@"%@ ",user];
+    infoLabel.text = [NSString stringWithFormat:@"%@ ",userProfile];
     
     
     NSDate *creationDate = [object createdAt];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"HH:mm dd/MM yyyy"];
     
-    NSLog(@">>>>> %@ ", [NSString stringWithFormat:@"%@ ",creationDate]);
+    //NSLog(@">>>>> %@ ", [NSString stringWithFormat:@"%@ ",creationDate]);
     
     //nameLabel.text = [object objectForKey:@"user"];
     
@@ -259,7 +268,7 @@
       //  [iliked setImage:[UIImage imageNamed:@"Gray_Like.png"] forState:UIControlStateNormal];
     
     
-    NSLog(@"Likes: %@", scoreArray);
+    //NSLog(@"Likes: %@", scoreArray);
     
     
     return cell;
@@ -286,7 +295,7 @@
 {
     [super objectsDidLoad:error];
     
-    NSLog(@"error: %@", [error localizedDescription]);
+    //NSLog(@"error: %@", [error localizedDescription]);
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -313,7 +322,7 @@
 
 - (void)adjustEdgeInsetsForTableView {
     
-    NSLog(@"adjustEdgeInsetsForTableView");
+    //NSLog(@"adjustEdgeInsetsForTableView");
     
     if(self.isMovingToParentViewController) {
         self.tableView.contentInset = UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height + 30, 0, 0, 0);
@@ -334,7 +343,7 @@
 
 -(void) likeClicked:(likeButton*)sender
 {
-    NSLog(@"userData %@", sender.userData);
+    //NSLog(@"userData %@", sender.userData);
     
     if ([sender.objId isEqualToString:@""]) {
         PFObject *saveObject = [PFObject objectWithClassName:@"Likes"];

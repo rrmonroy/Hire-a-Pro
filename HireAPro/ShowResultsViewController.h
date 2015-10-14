@@ -21,5 +21,5 @@
     @property (nonatomic, retain) NSString *occupation;
     @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
-
+    @property (nonatomic, retain) NSString *userSelected;
 @end
