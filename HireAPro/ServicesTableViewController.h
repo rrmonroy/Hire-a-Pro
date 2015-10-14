@@ -15,4 +15,7 @@
     @property (strong, nonatomic) IBOutlet UIBarButtonItem *btn_save;
     - (IBAction)btn_save:(id)sender;
 
+- (IBAction)btn_cancel:(id)sender;
+
+
 @end

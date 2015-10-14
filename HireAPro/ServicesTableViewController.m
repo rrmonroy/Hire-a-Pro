@@ -236,4 +236,10 @@
     [self performSegueWithIdentifier:@"Register" sender:self];
     
 }
+
+- (IBAction)btn_cancel:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+
+    
+}
 @end

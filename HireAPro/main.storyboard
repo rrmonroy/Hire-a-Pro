@@ -294,7 +294,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="k56-dM-yri" kind="show" id="DFi-Pp-DqE"/>
+                                            <segue destination="qhy-e5-DeR" kind="show" id="9hr-47-kCP"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -1503,6 +1503,11 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="jz3-X1-x0Q">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="CxO-d6-0hD">
+                            <connections>
+                                <action selector="btn_cancel:" destination="qhy-e5-DeR" id="TuM-FL-Cvo"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add Services" id="GbA-jf-4o0">
                             <connections>
                                 <segue destination="IYL-3B-cza" kind="show" id="3Fc-RT-qq0"/>
@@ -1516,7 +1521,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vmZ-as-Oon" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5345.5" y="679.5"/>
+            <point key="canvasLocation" x="4320.5" y="622.5"/>
         </scene>
         <!--Occupation Table View Controller-->
         <scene sceneID="Hzg-jA-iWx">
@@ -1553,24 +1558,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cce-A3-BOg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5904.5" y="655.5"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="crx-Vp-pIt">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="k56-dM-yri" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FZy-sy-uuG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="qhy-e5-DeR" kind="relationship" relationship="rootViewController" id="MUH-cv-6wK"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HMq-xd-gjn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4798.5" y="687.5"/>
         </scene>
         <!--Services Table View Controller-->
         <scene sceneID="3Jb-HU-hBT">
@@ -1714,7 +1701,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FfO-xW-BNs">
                                             <rect key="frame" x="50" y="4" width="312" height="14"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ise-t9-TnV">
@@ -1726,7 +1713,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" tag="104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="104" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnG-sq-cMm">
                                             <rect key="frame" x="8" y="43" width="354" height="14"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" tag="107" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WCf-p1-cgA" customClass="likeButton">
@@ -1748,7 +1735,7 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="X3r-m0-WKh" secondAttribute="bottom" constant="36.5" id="Sh9-7Y-81z"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
