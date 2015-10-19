@@ -22,8 +22,7 @@
     @synthesize viewType;
     @synthesize userProfile;
 
-- (id)initWithCoder:(NSCoder *)aCoder
-{
+- (id) initWithCoder:(NSCoder *)aCoder{
     self = [super initWithCoder:aCoder];
     if (self) {
         // Custom the table
@@ -45,8 +44,7 @@
     }
     return self;
 }
-
-- (void)viewDidLoad {
+- (void) viewDidLoad {
     
     // Do any additional setup after loading the view.
 
@@ -78,21 +76,14 @@
     [super viewDidLoad];
     
 }
-
-- (void)didReceiveMemoryWarning {
+- (void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
+- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
-
-- (PFQuery *)queryForTable
-{
+- (PFQuery *) queryForTable{
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
     [query whereKey:@"user" equalTo:userProfile];
     
@@ -106,13 +97,7 @@
     
     return query;
 }
-
-
-
-// Override to customize the look of a cell representing an object. The default is to display
-// a UITableViewCellStyleDefault style cell with the label being the first key in the object.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object{
     static NSString *simpleTableIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -136,7 +121,13 @@
     float yy=0;
     float xx = [UIImage imageWithData:image.getData].size.width/(cell.frame.size.width-30);
     yy=[UIImage imageWithData:image.getData].size.height/xx;
+    
+    if (isnan(yy))
+        yy=0;
+    
     userImage.frame = CGRectMake(15, 40, cell.frame.size.width-30, yy);
+    
+
 
     PFImageView *mainPicture = (PFImageView*)[cell viewWithTag:103];
     
@@ -273,32 +264,33 @@
     
     return cell;
 }
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.row == self.objects.count) {
+        NSLog(@"----3");
         return 110.0f;  //last cell
     }else{
-        
+        NSLog(@"----4 %ld ::: %ld",(long)indexPath.row,(long)self.objects.count);
         PFObject* update = [self.objects objectAtIndex:indexPath.row];
         PFFile *image = (PFFile *)[update objectForKey:@"image"];
+        NSLog(@"----41  ");
         float yy=0;
         float xx = [UIImage imageWithData:image.getData].size.width/(self.view.frame.size.width-30);
         yy=[UIImage imageWithData:image.getData].size.height/xx;
-        
-        return yy+100;
+
+        NSLog(@"----5 %f ",yy);
+        if (isnan(yy))
+            return 110.0f;
+        else
+            return yy+100;
     }
 }
-
-
-- (void) objectsDidLoad:(NSError *)error
-{
+- (void) objectsDidLoad:(NSError *)error{
     [super objectsDidLoad:error];
     
     //NSLog(@"error: %@", [error localizedDescription]);
 }
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
         /*
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
@@ -314,19 +306,19 @@
          */        
     }
 }
-
-- (void)viewWillAppear:(BOOL)animated {
+- (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self adjustEdgeInsetsForTableView];
 }
-
-- (void)adjustEdgeInsetsForTableView {
+- (void) adjustEdgeInsetsForTableView {
     
     //NSLog(@"adjustEdgeInsetsForTableView");
     
     if(self.isMovingToParentViewController) {
+        NSLog(@"---1");
         self.tableView.contentInset = UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height + 30, 0, 0, 0);
     } else {
+        NSLog(@"---2");
         self.tableView.contentInset = UIEdgeInsetsZero;
     }
 }
@@ -341,8 +333,7 @@
 }
 */
 
--(void) likeClicked:(likeButton*)sender
-{
+-(void) likeClicked:(likeButton*)sender{
     //NSLog(@"userData %@", sender.userData);
     
     if ([sender.objId isEqualToString:@""]) {
