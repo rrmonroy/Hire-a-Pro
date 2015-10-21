@@ -29,6 +29,8 @@
 
 - (void)toggleHiddenState:(BOOL)shouldHide{
     NSLog(@"   toggleHiddenState ");
+    
+    
 
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
@@ -43,7 +45,6 @@
 }
 
 #pragma mark - View lifecycle
-
 - (void)viewDidLoad{
         NSLog(@"viewDidLoad");
     [super viewDidLoad];
@@ -67,10 +68,13 @@
     
     UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
 
-    self.loginbtn.readPermissions = @[@"public_profile", @"email"];
+    self.loginbtn.readPermissions = @[@"public_profile", @"email", @"user_friends"];
 
     
     self.loginbtn.delegate = self;
+    
+//    FBLoginView *loginView = [[FBLoginView alloc] init];
+//    loginView.delegate = self;
     
   //  [self toggleHiddenState:YES];
 //    self.lblLoginStatus.text = @"";
@@ -103,13 +107,78 @@
         
     }
     
+    if (FBSession.activeSession.isOpen) {
+        NSLog(@"Its open");
+    }
+    /*
+    NSArray *permissions = [[NSArray alloc] initWithObjects:@"email", nil];
     
+    [FBSession openActiveSessionWithReadPermissions:permissions
+                                       allowLoginUI:YES
+                                  completionHandler:^(FBSession *session,
+                                                      FBSessionState status,
+                                                      NSError *error) {
+                                      
+                                      NSLog(@"%@",permissions);
+                                          NSLog(@"%@", error);
+                                      
+                                      [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                                          NSLog(@"%@", result);
+                                          NSLog(@"%@", error);
+
+                                          NSLog(@"%@", [result objectForKey:@"email"]);
+                                      }];
+                                      
+                                  }];
+    
+
+    
+    
+    [FBRequestConnection startWithGraphPath:@"me"
+                                 parameters:@{@"fields": @"first_name, last_name, picture.type(normal), email"}
+                                 HTTPMethod:@"GET"
+                          completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                              if (!error) {
+                                  // Set the use full name.
+                                  NSLog(@" %@", [NSString stringWithFormat:@"%@ %@",
+                                                           [result objectForKey:@"first_name"],
+                                                           [result objectForKey:@"last_name"]
+                                                           ]);
+                                  
+                                  // Set the e-mail address.
+                              //    self.lblEmail.text = [result objectForKey:@"email"];
+                                  
+                                  // Get the user's profile picture.
+                                 // NSURL *pictureURL = [NSURL URLWithString:[[[result objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"]];
+                                  //self.imgProfilePicture.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:pictureURL]];
+                                  
+                                  // Make the user info visible.
+                                  //[self hideUserInfo:NO];
+                                  
+                                  // Stop the activity indicator from animating and hide the status label.
+                                 // self.lblStatus.hidden = YES;
+                                //  [self.activityIndicator stopAnimating];
+                                //  self.activityIndicator.hidden = YES;
+                              }
+                              else{
+                                  NSLog(@"---> %@", [error localizedDescription]);
+                              }
+                          }];
+        */
 }
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView{
    NSLog(@"You are logged in.");
     
-    [self toggleHiddenState:NO];
+    [self toggleHiddenState:YES];
+    
+    
+    
 }
+
+
+
+
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
         NSLog(@"textFieldShouldReturn");
     if(textField.tag == 2 ){
@@ -133,16 +202,22 @@
     }
     
 }
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)fbuser{
+    
 
--(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)fbuser{
-    NSLog(@"%@", fbuser);
+    NSLog(@"-----> ");
+    NSLog(@"-----> ");
+    NSLog(@"-----> ");
+    NSLog(@"-----> ");
+    
+    NSLog(@"loginViewFetchedUserInfo  %@", fbuser);
    // self.profilePicture.profileID = user.id;
    // self.lblUsername.text = user.name;
    // self.lblEmail.text = [user objectForKey:@"email"];
     NSLog(@"Email  %@",[fbuser objectForKey:@"email"]);
     NSLog(@"NAme  %@",fbuser.name);
     
-    [PFUser logInWithUsernameInBackground:[fbuser objectForKey:@"email"] password:[fbuser objectForKey:@"email"] block:^(PFUser *user, NSError *error) {
+    [PFUser logInWithUsernameInBackground:[fbuser objectForKey:@"email"] password:[fbuser objectForKey:@"id"] block:^(PFUser *user, NSError *error) {
         if (user) {
             //Open the wall
 
@@ -154,6 +229,7 @@
 
             
             [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
+            
         } else {
 
             
@@ -163,7 +239,7 @@
 
                 PFUser *user = [PFUser user];
                 user.username = [fbuser objectForKey:@"email"];
-                user.password = [fbuser objectForKey:@"email"];
+                user.password = [fbuser objectForKey:@"id"];
                 
 
                 
@@ -193,16 +269,15 @@
     
     
 }
--(void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView{
+- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView{
   //  self.lblLoginStatus.text = @"You are logged out";
     NSLog(@"You are logged out");
     
     [self toggleHiddenState:YES];
 }
--(void)loginView:(FBLoginView *)loginView handleError:(NSError *)error{
-    NSLog(@"handleError --- %@", [error localizedDescription]);
+- (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error{
+   // NSLog(@"handleError --- %@", [error localizedDescription]);
 }
-
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     NSLog(@"textFieldDidEndEditing");
 
@@ -265,6 +340,9 @@
 
 //Login button pressed
 -(IBAction)logInPressed:(id)sender{
+    
+    NSLog(@"logInPressed");
+    
     /*
     [PFUser logInWithUsernameInBackground:self.userTextField.text password:self.passwordTextField.text block:^(PFUser *user, NSError *error) {
         if (user) {

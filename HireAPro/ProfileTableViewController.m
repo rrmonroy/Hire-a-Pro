@@ -14,9 +14,20 @@
 @end
 
 @implementation ProfileTableViewController
-
+- (void)viewWillAppear:(BOOL)animated{
+    NSLog(@"viewWillAppear");
+ 
+    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    
+    NSLog(@"app.loginWith  %@",app.loginWith) ;
+    
+    
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -102,17 +113,21 @@
     [keychain resetKeychainItem];
     
     AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    /*
+    
     if ([app.loginWith isEqualToString:@"facebook"]) {
+        [[FBSession activeSession] closeAndClearTokenInformation];
+        /*
         for(id object in self.loginView.subviews){
             if([[object class] isSubclassOfClass:[UIButton class]]){
                 UIButton* button = (UIButton*)object;
                 [button sendActionsForControlEvents:UIControlEventTouchUpInside];
             }
         }
+        */
         
-    }else{
-      */
+    }
+    //else{
+      
     [PFUser logOut];
         
         UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"main"

@@ -18,6 +18,7 @@
 		BA3AB1211B69569600EF2266 /* Skills.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3AB1201B69569600EF2266 /* Skills.m */; };
 		BA3AB1241B6A76B600EF2266 /* OccupationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3AB1231B6A76B600EF2266 /* OccupationTableViewController.m */; };
 		BA3AB1271B6A791F00EF2266 /* Occupation.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3AB1261B6A791F00EF2266 /* Occupation.m */; };
+		BA6231371BD585D8003D2035 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA6231361BD585D8003D2035 /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
 		BA6A3BF01B7A7F5100006BC6 /* EmailLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6A3BEF1B7A7F5100006BC6 /* EmailLoginViewController.m */; };
 		BAA073CE1BA1D0F500C1AECB /* ShowResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA073CD1BA1D0F500C1AECB /* ShowResultsViewController.m */; };
 		BAA073D11BA8BBA600C1AECB /* RegisterUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA073D01BA8BBA600C1AECB /* RegisterUserViewController.m */; };
@@ -91,6 +92,7 @@
 		BA3AB1231B6A76B600EF2266 /* OccupationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OccupationTableViewController.m; sourceTree = "<group>"; };
 		BA3AB1251B6A791F00EF2266 /* Occupation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Occupation.h; sourceTree = "<group>"; };
 		BA3AB1261B6A791F00EF2266 /* Occupation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Occupation.m; sourceTree = "<group>"; };
+		BA6231361BD585D8003D2035 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		BA6A3BEE1B7A7F5100006BC6 /* EmailLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailLoginViewController.h; sourceTree = "<group>"; };
 		BA6A3BEF1B7A7F5100006BC6 /* EmailLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailLoginViewController.m; sourceTree = "<group>"; };
 		BAA073CC1BA1D0F500C1AECB /* ShowResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowResultsViewController.h; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				BAA8637B1B54450F0016725C /* AudioToolbox.framework in Frameworks */,
 				BAA863791B5445000016725C /* CFNetwork.framework in Frameworks */,
 				BAA863771B5444F70016725C /* MobileCoreServices.framework in Frameworks */,
+				BA6231371BD585D8003D2035 /* FBSDKCoreKit.framework in Frameworks */,
 				BAA863541B54441C0016725C /* SystemConfiguration.framework in Frameworks */,
 				BAA863721B5444B20016725C /* FacebookSDK.framework in Frameworks */,
 			);
@@ -351,6 +354,7 @@
 		BAA8636D1B54443D0016725C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA6231361BD585D8003D2035 /* FBSDKCoreKit.framework */,
 				BAB02F0F1BC618D600A2A276 /* Parse.framework */,
 				BAB02F091BC616F400A2A276 /* StoreKit.framework */,
 				BAB02F071BC6147800A2A276 /* CoreLocation.framework */,

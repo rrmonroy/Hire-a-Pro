@@ -360,8 +360,7 @@
     [self.activityIndicator stopAnimating];
     [self.activityIndicator removeFromSuperview];
 }
--(void) buttonClicked:(likeButton*)sender
-{
+-(void) buttonClicked:(likeButton*)sender{
     NSLog(@"userData %@", sender.userData);
     
     PFObject *saveObject = [PFObject objectWithClassName:@"Likes"];
@@ -373,12 +372,10 @@
     /**/
 }
 
-
 #pragma mark Receive Wall Objects
 
 //Get the list of images
--(void)getWallImages
-{
+-(void)getWallImages{
     
     NSLog(@"getWallImages - wallPics %@",user);
     
@@ -412,7 +409,6 @@
     }];
 
 }
-
 
 #pragma mark IB Actions
 -(IBAction)logoutPressed:(id)sender{

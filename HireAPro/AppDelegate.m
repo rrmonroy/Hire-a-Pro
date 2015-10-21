@@ -39,16 +39,34 @@
      [player save];//3
      */
     
-    [FBLoginView class];
-    [FBProfilePictureView class];
+    //[FBLoginView class];
+//    [FBProfilePictureView class];
     // Override point for customization after application launch.
     return YES;
 }
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
     
-    return [FBAppCall handleOpenURL:url
-                  sourceApplication:sourceApplication];
+    
+    
+        // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
+        BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    
+        // You can add your app-specific url handling code here if needed
+        return wasHandled;
+    /*
+    return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication  fallbackHandler:^(FBAppCall *call)
+            {
+                NSLog(@"Facebook handler");
+            }
+            ];
+    */
+    
+//    return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    
+    
+    
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
