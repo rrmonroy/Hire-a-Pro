@@ -32,6 +32,8 @@
     
     [self.view addGestureRecognizer:tgr];
     
+            [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    
     
 }
 - (void)dismissKeyboard {

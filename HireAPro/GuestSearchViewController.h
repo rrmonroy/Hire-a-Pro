@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GuestSearchViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface GuestSearchViewController : UIViewController <UITextFieldDelegate ,UITextViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
+@property (strong, nonatomic) IBOutlet UITextField *txt_tools;
+
+@property (strong, nonatomic) IBOutlet UISwitch *swi_nearme;
+
+@property (strong, nonatomic) IBOutlet UITextField *txt_ocupation;
+- (IBAction)btn_search:(id)sender;
 @end

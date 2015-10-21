@@ -12,6 +12,8 @@
 #import <Parse/Parse.h>
 
 #import "KeychainItemWrapper.h"
+#import "GuestSearchViewController.h"
+
 
 @interface LoginViewController (){
 
@@ -360,20 +362,29 @@
 - (void) prepareForSegue: (UIStoryboardSegue *)segue sender:(id) sender{
     
     NSLog(@"prepareForSegue %@",segue.identifier);
+    if ([segue.identifier isEqualToString:@"GuestSearch"]){
+
+        GuestSearchViewController *destViewController = segue.destinationViewController;
+        destViewController.title = NSLocalizedString(@"Search", title of information view);
+    }
+    
     
     if ([segue.identifier isEqualToString:@"LoginSuccesful"])
     {
         
-        
-
         NSLog(@"cUser %@",cUser);
         
         AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
         app.currentUser = cUser;
         app.loginWith = @"facebook";
+    }else{
+    
         
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Main", returnbuttontitle) style:     UIBarButtonItemStyleBordered target:nil action:nil];
+        self.navigationItem.backBarButtonItem = backButton;
         
-        
+        [self.navigationController.navigationBar setBarTintColor:[UIColor lightGrayColor]];
+    
     }
 }
 
