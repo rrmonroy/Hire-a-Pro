@@ -10,7 +10,7 @@
 #import "RegisterViewController.h"
 #import "WallPicturesViewController.h"
 #import <Parse/Parse.h>
-
+#import "Constants.h"
 #import "KeychainItemWrapper.h"
 #import "GuestSearchViewController.h"
 
@@ -177,10 +177,6 @@
     
 }
 
-
-
-
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
         NSLog(@"textFieldShouldReturn");
     if(textField.tag == 2 ){
@@ -242,22 +238,53 @@
                 PFUser *user = [PFUser user];
                 user.username = [fbuser objectForKey:@"email"];
                 user.password = [fbuser objectForKey:@"id"];
-                
+                [user setObject:[fbuser objectForKey:@"first_name"] forKey:@"FirstName"];
+                [user setObject:[fbuser objectForKey:@"last_name"] forKey:@"LastName"];
+                [user setObject:[fbuser objectForKey:@"email"] forKey:@"email"];
+                [user setObject:@"000-000-0000" forKey:@"Phone"];
 
                 
  //                user.objectId
-                NSLog(@"validate USer");
+                NSLog(@"validate USer %@ %@",[fbuser objectForKey:@"email"],[fbuser objectForKey:@"id"]);
+                
                 [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                     if (!error) {
                         //The registration was succesful, go to the wall
                         //self.userTextField.text= [fbuser objectForKey:@"email"];
-                        cUser = [fbuser objectForKey:@"email"];
-                        [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
+                        
+                        
+                        
+                        PFObject *imageObject = [PFObject objectWithClassName:WALL_OBJECT];
+
+                        [imageObject setObject:[PFUser currentUser].username forKey:KEY_USER];
+                        [imageObject setObject:@"" forKey:KEY_COMMENT];
+                        [imageObject setObject:@1 forKey:@"isheader"];
+                        
+                        PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:52 longitude:-4];
+                        [imageObject setObject:point forKey:KEY_GEOLOC];
+                        
+                        [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                            
+                            if (succeeded){
+
+                                cUser = [fbuser objectForKey:@"email"];
+                                [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
+                            }
+                            else{
+                                NSString *errorString = [[error userInfo] objectForKey:@"error"];
+                                UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error Login" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                                [errorAlertView show];
+                            }
+                        }];
+                        
+                        
+                        
+                        
                         
                     } else {
                         //Something bad has ocurred
                         NSString *errorString = [[error userInfo] objectForKey:@"error"];
-                        UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                        UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error 1" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
                         [errorAlertView show];
                     }
                 }];

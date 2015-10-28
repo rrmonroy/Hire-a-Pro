@@ -8,7 +8,7 @@
 
 #import "RegisterViewController.h"
 #import "WallPicturesViewController.h"
-
+#import "Constants.h"
 #import <Parse/Parse.h>
 
 @interface RegisterViewController ()
@@ -148,10 +148,28 @@
         NSLog(@"validate USer");
         [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (!error) {
-                //The registration was succesful, go to the wall
-                //self.userTextField.text= [fbuser objectForKey:@"email"];
-                cUser = self.txt_email.text;
-                [self performSegueWithIdentifier:@"SignupSuccesful" sender:self];
+                PFObject *imageObject = [PFObject objectWithClassName:WALL_OBJECT];
+                
+                [imageObject setObject:[PFUser currentUser].username forKey:KEY_USER];
+                [imageObject setObject:@"" forKey:KEY_COMMENT];
+                [imageObject setObject:@1 forKey:@"isheader"];
+                
+                PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:52 longitude:-4];
+                [imageObject setObject:point forKey:KEY_GEOLOC];
+                
+                [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    
+                    if (succeeded){
+                        cUser = self.txt_email.text;
+                        [self performSegueWithIdentifier:@"SignupSuccesful" sender:self];
+                    }
+                    else{
+                        NSString *errorString = [[error userInfo] objectForKey:@"error"];
+                        UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error Login" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                        [errorAlertView show];
+                    }
+                }];
+                
                 
             } else {
                 //Something bad has ocurred

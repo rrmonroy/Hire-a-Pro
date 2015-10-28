@@ -141,84 +141,29 @@
 {
     static NSString *simpleTableIdentifier = @"myRow";
     
-    NSLog(@" cellForRowAtIndexPath %@",indexPath);
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
+    
     Person *person = [searchResults objectAtIndex:indexPath.row];
-    
-//    cell.textLabel.text = person.userid ;
-    
-    UILabel *lbl_101 = (UILabel *)[cell viewWithTag:101];
-    lbl_101.text = [NSString stringWithFormat:@"%@ %@", person.name,person.lastname] ;
-    
-    UILabel *lbl_102 = (UILabel *)[cell viewWithTag:102];
-    lbl_102.text = person.email ;
-    
-    
-    
-    //Add the image
-//    PFFile *image = (PFFile *)[wallObject objectForKey:KEY_IMAGE];
-    
-//    NSLog(@"image width %f  height %f  pantalla width %f",[UIImage imageWithData:image.getData].size.width,[UIImage imageWithData:image.getData].size.height,wallImageView.frame.size.width  );
-    
-    
-    
-    UIImageView *userImage = (UIImageView *)[cell viewWithTag:201];;
 
-    userImage.image = [UIImage imageWithData:person.profPicture.getData];
-    //[[UIImageView alloc] initWithImage:[UIImage imageWithData:image.getData]];
-    /*
-    if ([UIImage imageWithData:person.profPicture.getData].size.width>[UIImage imageWithData:person.profPicture.getData].size.height) {
-        //            userImage.frame = CGRectMake(0, 0, wallImageView.frame.size.width, 200);
-        
-        int yy=0;
-        int xx = [UIImage imageWithData:person.profPicture.getData].size.width/300;
-        
-        yy=[UIImage imageWithData:person.profPicture.getData].size.height/xx;
-        if (yy>200) {
-            
-            yy=0;
-            xx = [UIImage imageWithData:person.profPicture.getData].size.height/200;
-            
-            yy=[UIImage imageWithData:person.profPicture.getData].size.width/xx;
-            
-            
-            userImage.frame = CGRectMake((300-yy)/2, 0, yy, 200);
-            
-        }else{
-            userImage.frame = CGRectMake(0, 0, 300, yy);
-        }
-    }else{
-        int yy=0;
-        int xx = [UIImage imageWithData:person.profPicture.getData].size.height/200;
-        
-        yy=[UIImage imageWithData:person.profPicture.getData].size.width/xx;
-        
-        userImage.frame = CGRectMake((300-yy)/2, 0, yy, 200);
-    }
-    */
+        UILabel *lbl_101 = (UILabel *)[cell viewWithTag:101];
+        lbl_101.text = [NSString stringWithFormat:@"%@ %@", person.name,person.lastname] ;
     
-    userImage.userInteractionEnabled = YES;
-    userImage.contentMode = UIViewContentModeScaleAspectFit;
+        UILabel *lbl_102 = (UILabel *)[cell viewWithTag:102];
+        lbl_102.text = person.email ;
     
-    userImage.layer.cornerRadius = (userImage.frame.size.width / 2);
-    userImage.layer.borderWidth = 2.0f;
-    userImage.layer.borderColor = [UIColor grayColor].CGColor;
-    userImage.clipsToBounds = YES;
-    
-    
-    
-//    [wallImageView addSubview:userImage];
-    
-    
-    
-    
-    
-    //   cell.textLabel.text = [searchResults objectAtIndex:indexPath.row];
+        UIImageView *userImage = (UIImageView *)[cell viewWithTag:201];;
+
+        userImage.image = [UIImage imageWithData:person.profPicture.getData];
+        userImage.userInteractionEnabled = YES;
+        userImage.contentMode = UIViewContentModeScaleAspectFit;
+        userImage.layer.cornerRadius = (userImage.frame.size.width / 2);
+        userImage.layer.borderWidth = 2.0f;
+        userImage.layer.borderColor = [UIColor grayColor].CGColor;
+        userImage.clipsToBounds = YES;
     
     return cell;
 }

@@ -266,6 +266,7 @@
             [imageObject setObject:file forKey:KEY_IMAGE];
             [imageObject setObject:[PFUser currentUser].username forKey:KEY_USER];
             [imageObject setObject:self.commentTextField.text forKey:KEY_COMMENT];
+            [imageObject setObject:@2 forKey:@"isheader"];
             
             PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:52 longitude:-4];
             [imageObject setObject:point forKey:KEY_GEOLOC];

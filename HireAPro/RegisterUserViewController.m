@@ -8,6 +8,8 @@
 
 #import "RegisterUserViewController.h"
 #import <Parse/Parse.h>
+#import "Constants.h"
+
 
 @interface RegisterUserViewController ()
 {
@@ -117,26 +119,38 @@
         PFUser *user = [PFUser user];
         user.username = self.txt_email.text;
         user.password = self.txt_pass1.text;
-        
-        NSLog(@"Set Address ");
-        
         [user setObject:self.txt_fname.text forKey:@"FirstName"];
         [user setObject:self.txt_lname.text forKey:@"LastName"];
         [user setObject:self.txt_email.text forKey:@"email"];
-        
         [user setObject:@"User" forKey:@"ProfileStatus"];
+        [user setObject:@"000-000-0000" forKey:@"Phone"];
         
         
-        
-        
-        //                user.objectId
-        NSLog(@"validate USer");
         [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (!error) {
-                //The registration was succesful, go to the wall
-                //self.userTextField.text= [fbuser objectForKey:@"email"];
-                cUser = self.txt_email.text;
-                [self performSegueWithIdentifier:@"RegisterUser" sender:self];
+                PFObject *imageObject = [PFObject objectWithClassName:WALL_OBJECT];
+                
+                [imageObject setObject:[PFUser currentUser].username forKey:KEY_USER];
+                [imageObject setObject:@"" forKey:KEY_COMMENT];
+                [imageObject setObject:@1 forKey:@"isheader"];
+                
+                PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:52 longitude:-4];
+                [imageObject setObject:point forKey:KEY_GEOLOC];
+                
+                [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    
+                    if (succeeded){
+                        
+                        
+                        cUser = self.txt_email.text;
+                        [self performSegueWithIdentifier:@"RegisterUser" sender:self];
+                    }
+                    else{
+                        NSString *errorString = [[error userInfo] objectForKey:@"error"];
+                        UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error Login" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                        [errorAlertView show];
+                    }
+                }];
                 
             } else {
                 //Something bad has ocurred

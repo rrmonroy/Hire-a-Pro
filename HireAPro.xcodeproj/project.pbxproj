@@ -147,8 +147,8 @@
 		BAB02EBD1BB23BF500A2A276 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		BAB02EBF1BB23FB300A2A276 /* ProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewController.h; sourceTree = "<group>"; };
 		BAB02EC01BB23FB300A2A276 /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
-		BAB02EC21BB2432C00A2A276 /* ProfileUITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileUITableView.h; path = HireAPro/ProfileUITableView.h; sourceTree = "<group>"; };
-		BAB02EC31BB2432C00A2A276 /* ProfileUITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileUITableView.m; path = HireAPro/ProfileUITableView.m; sourceTree = "<group>"; };
+		BAB02EC21BB2432C00A2A276 /* ProfileUITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileUITableView.h; sourceTree = "<group>"; };
+		BAB02EC31BB2432C00A2A276 /* ProfileUITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileUITableView.m; sourceTree = "<group>"; };
 		BAB02EFC1BC6071100A2A276 /* WALLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WALLViewController.h; sourceTree = "<group>"; };
 		BAB02EFD1BC6071100A2A276 /* WALLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WALLViewController.m; sourceTree = "<group>"; };
 		BAB02EFF1BC60D5300A2A276 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -201,6 +201,8 @@
 				BA3AB1161B66CB5900EF2266 /* MeViewController.m */,
 				BA3AB1191B67D2DB00EF2266 /* ProfileViewController.h */,
 				BA3AB11A1B67D2DB00EF2266 /* ProfileViewController.m */,
+				BAB02EC21BB2432C00A2A276 /* ProfileUITableView.h */,
+				BAB02EC31BB2432C00A2A276 /* ProfileUITableView.m */,
 				BAB02EBF1BB23FB300A2A276 /* ProfileTableViewController.h */,
 				BAB02EC01BB23FB300A2A276 /* ProfileTableViewController.m */,
 				BA3AB11C1B691EE900EF2266 /* ServicesTableViewController.h */,
@@ -229,8 +231,6 @@
 		BAA863041B543DED0016725C = {
 			isa = PBXGroup;
 			children = (
-				BAB02EC21BB2432C00A2A276 /* ProfileUITableView.h */,
-				BAB02EC31BB2432C00A2A276 /* ProfileUITableView.m */,
 				BAA8630F1B543DED0016725C /* HireAPro */,
 				BAA8636D1B54443D0016725C /* Frameworks */,
 				BAA863291B543DED0016725C /* HireAProTests */,

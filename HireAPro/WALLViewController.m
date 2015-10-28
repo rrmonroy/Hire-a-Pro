@@ -16,7 +16,9 @@
 
 @implementation WALLViewController{
     PFFile * profPic;
-    
+    NSString *fullname;
+    NSString *email;
+    NSString *phone;
 }
     @synthesize user;
     @synthesize viewType;
@@ -69,6 +71,10 @@
     
     for (PFUser *resutlUsers in users){
         profPic = (PFFile *)[resutlUsers objectForKey:@"ProfPicture"];
+        
+        fullname = [NSString stringWithFormat:@"%@ %@", [resutlUsers objectForKey:@"FirstName"],[resutlUsers objectForKey:@"LastName"]];
+        email = [resutlUsers objectForKey:@"email"];
+        phone = [resutlUsers objectForKey:@"Phone"];
     }
     
     //self.navigationController.navigationBar.hidden = YES;
@@ -93,8 +99,10 @@
      query.cachePolicy = kPFCachePolicyCacheThenNetwork;
      }*/
     
-    [query orderByDescending:@"createdAt"];
-    
+    [query orderByAscending:@"isheader"];
+    [query addDescendingOrder:@"createdAt"];
+
+
     return query;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object{
@@ -105,180 +113,220 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    // Configure the cell
-//    NSLog(@"1");
-    //PFFile *thumbnail = [object objectForKey:@"image"];
-  //  NSLog(@"2");
+//    int originY = 10;
 
-    int originY = 10;
+    if (indexPath.row == 0) {
+        
+        UILabel *lblName = [[UILabel alloc] init];
+        [lblName setFrame:CGRectMake(140,15,200,20)];
+        lblName.backgroundColor=[UIColor clearColor];
+        lblName.textColor=[UIColor blackColor];
+        lblName.userInteractionEnabled=YES;
+        lblName.text= fullname;
+        [lblName setFont:[UIFont systemFontOfSize:12]];
+        [cell addSubview:lblName];
 
-    
-    
-    
-    PFFile *image = (PFFile *)[object objectForKey:@"image"];
-    
-    UIImageView *userImage = [[UIImageView alloc] initWithImage:[UIImage imageWithData:image.getData]];
-    float yy=0;
-    float xx = [UIImage imageWithData:image.getData].size.width/(cell.frame.size.width-30);
-    yy=[UIImage imageWithData:image.getData].size.height/xx;
-    
-    if (isnan(yy))
-        yy=0;
-    
-    userImage.frame = CGRectMake(15, 40, cell.frame.size.width-30, yy);
-    
+        
+        UILabel *lblEmail = [[UILabel alloc] init];
+        [lblEmail setFrame:CGRectMake(140,40,200,20)];
+        lblEmail.backgroundColor=[UIColor clearColor];
+        lblEmail.textColor=[UIColor blackColor];
+        lblEmail.userInteractionEnabled=YES;
+        lblEmail.text= email;
+        [lblEmail setFont:[UIFont systemFontOfSize:12]];
+        [cell addSubview:lblEmail];
+        
+        UILabel *lblPhone = [[UILabel alloc] init];
+        [lblPhone setFrame:CGRectMake(140,65,300,20)];
+        lblPhone.backgroundColor=[UIColor clearColor];
+        lblPhone.textColor=[UIColor blackColor];
+        lblPhone.userInteractionEnabled=YES;
+        lblPhone.text= phone;
+        [lblPhone setFont:[UIFont systemFontOfSize:12]];
+        [cell addSubview:lblPhone];
+        
+        UILabel *infoLabel = (UILabel*) [cell viewWithTag:101];
+        [infoLabel setHidden:TRUE];
+        
+        UILabel *prepTimeLabel = (UILabel*) [cell viewWithTag:102];
+        [prepTimeLabel setHidden:TRUE];
+        
+        UILabel *commentLabel = (UILabel*) [cell viewWithTag:104];
+        [commentLabel setHidden:TRUE];
+        
+        likeButton *iliked = (likeButton *)[cell viewWithTag:107];
+        [iliked setHidden:TRUE];
 
+        
+        UILabel *lblRecommender = [[UILabel alloc] init];
+        [lblRecommender setFrame:CGRectMake(110,150,100,20)];
+        lblRecommender.backgroundColor=[UIColor clearColor];
+        lblRecommender.textColor=[UIColor redColor];
+        lblRecommender.userInteractionEnabled=YES;
+        lblRecommender.text= @"20";
+        lblRecommender.textAlignment = NSTextAlignmentCenter;
+        [lblRecommender setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12]];
+        [cell addSubview:lblRecommender];
 
-    PFImageView *mainPicture = (PFImageView*)[cell viewWithTag:103];
-    
-  //  mainPicture.frame = CGRectMake(15, 40, self.view.frame.size.width-30, yy);
-    
-    mainPicture.image = [UIImage imageNamed:@"placeholder.jpg"];
-    mainPicture.file = (PFFile *)[object objectForKey:@"image"];
-    [mainPicture loadInBackground];
-    
-    
-    //Build the view with the image and the comments
-//    UIView *wallImageView = [[UIView alloc] initWithFrame:CGRectMake(0, originY, self.view.frame.size.width , yy+80)];
-//    [wallImageView setBackgroundColor:[UIColor whiteColor]];
-    
-    
-  //  [wallImageView addSubview:userImage];
-   //   [cell addSubview:userImage];
-    
+        UILabel *lblRecommenderT = [[UILabel alloc] init];
+        [lblRecommenderT setFrame:CGRectMake(110,170,100,20)];
+        lblRecommenderT.backgroundColor=[UIColor clearColor];
+        lblRecommenderT.textColor=[UIColor blackColor];
+        lblRecommenderT.userInteractionEnabled=YES;
+        lblRecommenderT.text= @"Recommenders";
+        lblRecommenderT.textAlignment = NSTextAlignmentCenter;
+        [lblRecommenderT setFont:[UIFont systemFontOfSize:12]];
+        [cell addSubview:lblRecommenderT];
 
-    
-    
-    PFImageView *profPicture = (PFImageView*)[cell viewWithTag:100];
-    profPicture.image = [UIImage imageNamed:@"placeholder.jpg"];
-    profPicture.file = ((PFFile *)profPic);
-    [profPicture loadInBackground];
-    
-    //image = ((PFFile *)profPic).getData;
-    //UIImageView *profPic1 = [[UIImageView alloc] initWithImage:[UIImage imageWithData:image.getData]];
-    //profPic1.frame = CGRectMake(15, 0, 35, 35);
-    
-    //[cell addSubview:profPic1];
-    
-    
- //   NSLog(@"image width %f  height %f  pantalla width %f",[UIImage imageWithData:image.getData].size.width,[UIImage imageWithData:image.getData].size.height,wallImageView.frame.size.width  );
-    
-    
-    
-    
-    
-    
-    //thumbnailImageView.image = [UIImage imageNamed:@"placeholder.jpg"];
-    //thumbnailImageView.file = thumbnail;
-    //[thumbnailImageView loadInBackground];
-    
-    
-    
-    
-    
-    
-    
-    //NSLog(@"---> %@",[object objectForKey:@"user"]);
-    
-    UILabel *infoLabel = (UILabel*) [cell viewWithTag:101];
-    infoLabel.text = [NSString stringWithFormat:@"%@ ",userProfile];
-    
-    
-    NSDate *creationDate = [object createdAt];
-    NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"HH:mm dd/MM yyyy"];
-    
-    //NSLog(@">>>>> %@ ", [NSString stringWithFormat:@"%@ ",creationDate]);
-    
-    //nameLabel.text = [object objectForKey:@"user"];
-    
-    UILabel *prepTimeLabel = (UILabel*) [cell viewWithTag:102];
-    //NSDate *creationDate = [object objectForKey:@"createdAt"];
-//    NSDateFormatter *df = [[NSDateFormatter alloc] init];
-  //  [df setDateFormat:@"HH:mm dd/MM yyyy"];
-    
-    prepTimeLabel.text = [NSString stringWithFormat:@"%@", [df stringFromDate:creationDate]];
-    
-    
-/*
-    btn_like.frame = CGRectMake(15.0, yy+50, 50.0, 20.0);
-    [btn_like setUserData:[NSString stringWithFormat:@"%@",wallObject.objectId]];
-    NSLog(@"%@",wallObject.objectId);
-    [wallImageView addSubview:btn_like];
-  */
+        
+        UILabel *lblPost = [[UILabel alloc] init];
+        [lblPost setFrame:CGRectMake(20,150,80,20)];
+        lblPost.backgroundColor=[UIColor clearColor];
+        lblPost.textColor=[UIColor redColor];
+        lblPost.userInteractionEnabled=YES;
+        lblPost.text= @"10";
+        lblPost.textAlignment = NSTextAlignmentCenter;
+        [lblPost setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12]];
+        [cell addSubview:lblPost];
+        
+        UILabel *lblPostT = [[UILabel alloc] init];
+        [lblPostT setFrame:CGRectMake(20,170,80,20)];
+        lblPostT.backgroundColor=[UIColor clearColor];
+        lblPostT.textColor=[UIColor blackColor];
+        lblPostT.userInteractionEnabled=YES;
+        lblPostT.text= @"Posts";
+        lblPostT.textAlignment = NSTextAlignmentCenter;
+        [lblPostT setFont:[UIFont systemFontOfSize:12]];
+        [cell addSubview:lblPostT];
+        
+        
+        UILabel *lblLikes = [[UILabel alloc] init];
+        [lblLikes setFrame:CGRectMake(220,150,80,20)];
+        lblLikes.backgroundColor=[UIColor clearColor];
+        lblLikes.textColor=[UIColor redColor];
+        lblLikes.userInteractionEnabled=YES;
+        lblLikes.text= @"200";
+        lblLikes.textAlignment = NSTextAlignmentCenter;
+        [lblLikes setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12]];
+        [cell addSubview:lblLikes];
+        
+        UILabel *lblLikesT = [[UILabel alloc] init];
+        [lblLikesT setFrame:CGRectMake(220,170,80,20)];
+        lblLikesT.backgroundColor=[UIColor clearColor];
+        lblLikesT.textColor=[UIColor blackColor];
+        lblLikesT.userInteractionEnabled=YES;
+        lblLikesT.text= @"Likes";
+        lblLikesT.textAlignment = NSTextAlignmentCenter;
+        [lblLikesT setFont:[UIFont systemFontOfSize:12]];
+        [cell addSubview:lblLikesT];
 
+        
+        PFFile *image = ((PFFile *)profPic);
+        
+        UIImageView *userImage = [[UIImageView alloc] initWithImage:[UIImage imageWithData:image.getData]];
+        userImage.frame = CGRectMake(10, 10, 120, 120);
+        
+        PFImageView *mainPicture = [[PFImageView alloc] initWithFrame:CGRectMake(10,10,120,120)];;
+        mainPicture.image = [UIImage imageNamed:@"placeholder.jpg"];
+        mainPicture.file = image;
+        [mainPicture loadInBackground];
+        
+        mainPicture.layer.cornerRadius = (mainPicture.frame.size.width / 2);
+        mainPicture.layer.borderWidth = 2.0f;
+        mainPicture.layer.borderColor = [UIColor grayColor].CGColor;
+        mainPicture.clipsToBounds = YES;
+        
+        
+        [cell addSubview:mainPicture];
+        
+        
 
-
-    UILabel *commentLabel = (UILabel*) [cell viewWithTag:104];
-    //Add the comment
-   // UILabel *commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(75, yy+50, cell.frame.size.width-85, 15)];
-    commentLabel.text = [object objectForKey:@"comment"];
-    //commentLabel.font = [UIFont fontWithName:@"ArialMT" size:13];
-    //commentLabel.textColor = [UIColor blackColor];
-    //commentLabel.backgroundColor = [UIColor clearColor];
-    //[cell addSubview:commentLabel];
-
-
-
-
-    //  [cell addSubview:wallImageView];
+    }
+    else
+    {
+        PFFile *image = (PFFile *)[object objectForKey:@"image"];
+        UIImageView *userImage = [[UIImageView alloc] initWithImage:[UIImage imageWithData:image.getData]];
+        float yy=0;
+        float xx = [UIImage imageWithData:image.getData].size.width/(cell.frame.size.width-30);
+        yy=[UIImage imageWithData:image.getData].size.height/xx;
     
-    likeButton *iliked = (likeButton *)[cell viewWithTag:107];
-    [iliked addTarget:self action:@selector(likeClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [iliked setUserData:[NSString stringWithFormat:@"%@",[object objectId]]];
+        if (isnan(yy))
+            yy=0;
     
-    PFQuery *query5 = [PFQuery queryWithClassName:@"Likes"];
-    [query5 whereKey:@"WallId" equalTo:[object objectId]];
-    [query5 whereKey:@"UserId" equalTo:user];
-    NSArray* scoreArray = [query5 findObjects];
+        userImage.frame = CGRectMake(15, 40, cell.frame.size.width-30, yy);
 
-    if (scoreArray.count>0){
-        for (PFObject *likeObject in scoreArray){
-            [iliked setObjId:likeObject.objectId];
-        }
-        [iliked setImage:[UIImage imageNamed:@"Orange_Like.png"] forState:UIControlStateNormal];
-        [iliked setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        PFImageView *mainPicture = (PFImageView*)[cell viewWithTag:103];
+        mainPicture.image = [UIImage imageNamed:@"placeholder.jpg"];
+        mainPicture.file = (PFFile *)[object objectForKey:@"image"];
+        [mainPicture loadInBackground];
 
-    }else{
+        PFImageView *profPicture = (PFImageView*)[cell viewWithTag:100];
+        profPicture.image = [UIImage imageNamed:@"placeholder.jpg"];
+        profPicture.file = ((PFFile *)profPic);
+        [profPicture loadInBackground];
+        
+        profPicture.layer.cornerRadius = (profPicture.frame.size.width / 2);
+        profPicture.layer.borderWidth = 2.0f;
+        profPicture.layer.borderColor = [UIColor grayColor].CGColor;
+        profPicture.clipsToBounds = YES;
+        
+        
+        
+    
+        UILabel *infoLabel = (UILabel*) [cell viewWithTag:101];
+        infoLabel.text = [NSString stringWithFormat:@"%@ ",userProfile];
+    
+        NSDate *creationDate = [object createdAt];
+        NSDateFormatter *df = [[NSDateFormatter alloc] init];
+        [df setDateFormat:@"HH:mm dd/MM yyyy"];
+        
+        UILabel *prepTimeLabel = (UILabel*) [cell viewWithTag:102];
+        prepTimeLabel.text = [NSString stringWithFormat:@"%@", [df stringFromDate:creationDate]];
+
+        UILabel *commentLabel = (UILabel*) [cell viewWithTag:104];
+        commentLabel.text = [object objectForKey:@"comment"];
+    
+        likeButton *iliked = (likeButton *)[cell viewWithTag:107];
+        [iliked addTarget:self action:@selector(likeClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [iliked setUserData:[NSString stringWithFormat:@"%@",[object objectId]]];
+    
+        PFQuery *query5 = [PFQuery queryWithClassName:@"Likes"];
+        [query5 whereKey:@"WallId" equalTo:[object objectId]];
+        [query5 whereKey:@"UserId" equalTo:user];
+        NSArray* scoreArray = [query5 findObjects];
+
+        if (scoreArray.count>0){
+            for (PFObject *likeObject in scoreArray){
+                [iliked setObjId:likeObject.objectId];
+            }
+            [iliked setImage:[UIImage imageNamed:@"Orange_Like.png"] forState:UIControlStateNormal];
+            [iliked setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+
+        }else{
             [iliked setObjId:@""];
             [iliked setImage:[UIImage imageNamed:@"Gray_Like.png"] forState:UIControlStateNormal];
             [iliked setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         
+        }
     }
-       // [btn_like setTitle:@"Liked" forState:UIControlStateNormal];
-//    else
-        //[btn_like setTitle:@"Like" forState:UIControlStateNormal];
-    
-    // Machine row will be an object inside the retrieved product row.
-    //          PFObject *machine = wallObject[@"machine"];
-    
-    
-    
-      //  iqty.text = [NSString stringWithFormat:@"Like"];
-       // [iliked setImage:[UIImage imageNamed:@"Orange_Like.png"] forState:UIControlStateNormal];
-      //  [iliked setImage:[UIImage imageNamed:@"Gray_Like.png"] forState:UIControlStateNormal];
-    
-    
-    //NSLog(@"Likes: %@", scoreArray);
-    
-    
     return cell;
 }
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.row == self.objects.count) {
-        NSLog(@"----3");
+
+    if (indexPath.row == 0) {
+        return 200.0f;  //first cell
+    }
+    else if (indexPath.row == self.objects.count) {
+
         return 110.0f;  //last cell
     }else{
-        NSLog(@"----4 %ld ::: %ld",(long)indexPath.row,(long)self.objects.count);
         PFObject* update = [self.objects objectAtIndex:indexPath.row];
         PFFile *image = (PFFile *)[update objectForKey:@"image"];
-        NSLog(@"----41  ");
         float yy=0;
         float xx = [UIImage imageWithData:image.getData].size.width/(self.view.frame.size.width-30);
         yy=[UIImage imageWithData:image.getData].size.height/xx;
 
-        NSLog(@"----5 %f ",yy);
         if (isnan(yy))
             return 110.0f;
         else
@@ -312,15 +360,19 @@
 }
 - (void) adjustEdgeInsetsForTableView {
     
-    //NSLog(@"adjustEdgeInsetsForTableView");
+    NSLog(@"adjustEdgeInsetsForTableView");
+    NSLog(@"---> View %f",self.tableView.frame.origin.x);
     
     if(self.isMovingToParentViewController) {
         NSLog(@"---1");
-        self.tableView.contentInset = UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height + 30, 0, 0, 0);
+        //self.tableView.contentInset = UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height + 30, 0, 0, 0);
     } else {
         NSLog(@"---2");
-        self.tableView.contentInset = UIEdgeInsetsZero;
+        //self.tableView.contentInset = UIEdgeInsetsZero;
     }
+    
+    NSLog(@"---> View after  %f",self.tableView.frame.origin.x);
+    
 }
 
 /*
