@@ -8,7 +8,7 @@
 
 #import "WALLViewController.h"
 #import "likeButton.h"
-
+#import "commentsViewController.h"
 
 @interface WALLViewController ()
 
@@ -19,6 +19,7 @@
     NSString *fullname;
     NSString *email;
     NSString *phone;
+    NSString *wallId;
 }
     @synthesize user;
     @synthesize viewType;
@@ -289,7 +290,12 @@
         likeButton *iliked = (likeButton *)[cell viewWithTag:107];
         [iliked addTarget:self action:@selector(likeClicked:) forControlEvents:UIControlEventTouchUpInside];
         [iliked setUserData:[NSString stringWithFormat:@"%@",[object objectId]]];
-    
+
+        likeButton *iComment = (likeButton *)[cell viewWithTag:109];
+        [iComment addTarget:self action:@selector(commentClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [iComment setUserData:[NSString stringWithFormat:@"%@",[object objectId]]];
+        
+        
         PFQuery *query5 = [PFQuery queryWithClassName:@"Likes"];
         [query5 whereKey:@"WallId" equalTo:[object objectId]];
         [query5 whereKey:@"UserId" equalTo:user];
@@ -339,20 +345,14 @@
     //NSLog(@"error: %@", [error localizedDescription]);
 }
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
-        /*
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        RecipeDetailViewController *destViewController = segue.destinationViewController;
+    if ([segue.identifier isEqualToString:@"showComments"])
+    {
+        commentsViewController *destViewController = (commentsViewController*)segue.destinationViewController;
         
-        PFObject *object = [self.objects objectAtIndex:indexPath.row];
-        Recipe *recipe = [[Recipe alloc] init];
-        recipe.name = [object objectForKey:@"name"];
-        recipe.imageFile = [object objectForKey:@"imageFile"];
-        recipe.prepTime = [object objectForKey:@"prepTime"];
-        recipe.ingredients = [object objectForKey:@"ingredients"];
-        destViewController.recipe = recipe;
-         */        
+        destViewController.wallId = wallId;
+        
     }
+    
 }
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -385,6 +385,13 @@
 }
 */
 
+
+
+-(void) commentClicked:(likeButton*)sender{
+    NSLog(@"userData %@", sender.userData);
+    wallId = sender.userData;
+    [self performSegueWithIdentifier:@"showComments" sender:self];
+}
 -(void) likeClicked:(likeButton*)sender{
     //NSLog(@"userData %@", sender.userData);
     
@@ -409,5 +416,4 @@
     
     /**/
 }
-
 @end

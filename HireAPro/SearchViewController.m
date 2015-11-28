@@ -16,6 +16,9 @@
 #import "ShowResultsViewController.h"
 
 @interface SearchViewController ()
+
+@property (nonatomic, strong) PFGeoPoint *userLocation;
+
 @property (nonatomic, retain) NSArray *resutlArray;
 @property (nonatomic, retain) NSArray *resutlArraySec;
 @property (nonatomic, retain) UIActivityIndicatorView *activityIndicator;
@@ -67,9 +70,32 @@
         
     }
     
+    //self.navigationController.navigationBar.hidden = YES;
+    //[self.navigationController setNavigationBarHidden:YES animated:NO];
+    //[self.navigationController setNavigationBarHidden:NO animated:NO];
 
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    
+    // NSLog(@"userLocation %@",self.userLocation);
+    
+    
+    [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
+        if (!error) {
+            self.userLocation = geoPoint;
+            NSLog(@"userLocation %@",self.userLocation);
+            //[self loadObjects];
+        }else{
+            NSLog(@"userLocation error %@",error.description);
+        }
+    }];
+    
+    
+    
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

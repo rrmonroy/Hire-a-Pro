@@ -32,7 +32,7 @@
     
     [self.view addGestureRecognizer:tgr];
     
-            [[self navigationController] setNavigationBarHidden:NO animated:YES];
+            [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
     
 }
