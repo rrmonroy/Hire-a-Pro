@@ -372,7 +372,11 @@
                             //[self.navigationController popViewControllerAnimated:YES];
                             
                             
-                            [self showErrorView:@"Profile has been updated"];
+//                            [self showErrorView:@"Profile has been updated"];
+                            
+                            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Profile" message:@"Profile has been updated" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                            [errorAlertView show];
+                            
                                 [self.navigationController popViewControllerAnimated:YES];
                         }
                         else{

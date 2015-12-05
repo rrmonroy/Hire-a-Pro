@@ -24,7 +24,7 @@
 
 @implementation LoginViewController
 
-@synthesize userTextField = _userTextField, passwordTextField = _passwordTextField;
+
 
 
 
@@ -50,6 +50,25 @@
 - (void)viewDidLoad{
         NSLog(@"viewDidLoad");
     [super viewDidLoad];
+    
+    NSLog(@" logo width %f",self.img_logo.frame.size.width);
+    
+    
+    
+//    self.img_logo.frame = CGRectMake(self.img_logo.frame.origin.x, self.img_logo.frame.origin.y, 10, 10);
+    
+    
+    self.userConstraint.constant=((self.view.frame.size.width-self.btn_user.frame.size.width)/2);
+
+    
+    self.logoConstraint.constant=((self.view.frame.size.width-self.img_logo.frame.size.width)/2);
+
+    self.emailConstraint.constant=((self.view.frame.size.width-self.btn_email.frame.size.width)/2);
+
+    self.guestConstraint.constant=((self.view.frame.size.width-self.btn_guest.frame.size.width)/2);
+    
+    self.facebookConstraint.constant=((self.view.frame.size.width-self.loginbtn.frame.size.width)/2);
+    
     // Do any additional setup after loading the view from its nib.
 
 
@@ -65,8 +84,8 @@
     cUserId = @"";
     
     
-    [[self userTextField]setDelegate:self];
-    [[self passwordTextField]setDelegate:self];
+    //[[self userTextField]setDelegate:self];
+//    [[self passwordTextField]setDelegate:self];
     
     UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
 

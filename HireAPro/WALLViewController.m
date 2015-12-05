@@ -158,6 +158,8 @@
         likeButton *iliked = (likeButton *)[cell viewWithTag:107];
         [iliked setHidden:TRUE];
 
+        likeButton *iComment = (likeButton *)[cell viewWithTag:109];
+        [iComment setHidden:TRUE];
         
         UILabel *lblRecommender = [[UILabel alloc] init];
         [lblRecommender setFrame:CGRectMake(110,150,100,20)];

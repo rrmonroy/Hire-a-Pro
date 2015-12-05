@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BA268A8F1BACF99B00CF48B1 /* likeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BA268A8E1BACF99B00CF48B1 /* likeButton.m */; };
+		BA35D36C1C12072200931860 /* hireapro_120.png in Resources */ = {isa = PBXBuildFile; fileRef = BA35D36B1C12072200931860 /* hireapro_120.png */; };
+		BA35D36E1C12077000931860 /* hireapro_180.png in Resources */ = {isa = PBXBuildFile; fileRef = BA35D36D1C12077000931860 /* hireapro_180.png */; };
 		BA3A3F1C1BC8B0C2002830A6 /* Black_Like.png in Resources */ = {isa = PBXBuildFile; fileRef = BA3A3F1A1BC8B0C2002830A6 /* Black_Like.png */; };
 		BA3A3F1D1BC8B0C2002830A6 /* Gray_Like.png in Resources */ = {isa = PBXBuildFile; fileRef = BA3A3F1B1BC8B0C2002830A6 /* Gray_Like.png */; };
 		BA3A3F1F1BC8B247002830A6 /* Orange_Like.png in Resources */ = {isa = PBXBuildFile; fileRef = BA3A3F1E1BC8B247002830A6 /* Orange_Like.png */; };
@@ -77,6 +79,8 @@
 /* Begin PBXFileReference section */
 		BA268A8D1BACF99B00CF48B1 /* likeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = likeButton.h; sourceTree = "<group>"; };
 		BA268A8E1BACF99B00CF48B1 /* likeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = likeButton.m; sourceTree = "<group>"; };
+		BA35D36B1C12072200931860 /* hireapro_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hireapro_120.png; sourceTree = "<group>"; };
+		BA35D36D1C12077000931860 /* hireapro_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hireapro_180.png; sourceTree = "<group>"; };
 		BA3A3F1A1BC8B0C2002830A6 /* Black_Like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Black_Like.png; sourceTree = "<group>"; };
 		BA3A3F1B1BC8B0C2002830A6 /* Gray_Like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gray_Like.png; sourceTree = "<group>"; };
 		BA3A3F1E1BC8B247002830A6 /* Orange_Like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Orange_Like.png; sourceTree = "<group>"; };
@@ -360,6 +364,8 @@
 		BAA8634D1B5442360016725C /* img */ = {
 			isa = PBXGroup;
 			children = (
+				BA35D36D1C12077000931860 /* hireapro_180.png */,
+				BA35D36B1C12072200931860 /* hireapro_120.png */,
 				BA3A3F1E1BC8B247002830A6 /* Orange_Like.png */,
 				BA3A3F1A1BC8B0C2002830A6 /* Black_Like.png */,
 				BA3A3F1B1BC8B0C2002830A6 /* Gray_Like.png */,
@@ -482,6 +488,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAB02F061BC60D5300A2A276 /* photo-frame@2x.png in Resources */,
+				BA35D36C1C12072200931860 /* hireapro_120.png in Resources */,
 				BAA863511B5442900016725C /* hireapro120.png in Resources */,
 				BA3A3F1F1BC8B247002830A6 /* Orange_Like.png in Resources */,
 				BAA863501B5442900016725C /* hire a pro home.png in Resources */,
@@ -493,6 +500,7 @@
 				BA3A3F1D1BC8B0C2002830A6 /* Gray_Like.png in Resources */,
 				BAA8631E1B543DED0016725C /* Images.xcassets in Resources */,
 				BAB02F031BC60D5300A2A276 /* Default-568h@2x.png in Resources */,
+				BA35D36E1C12077000931860 /* hireapro_180.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
