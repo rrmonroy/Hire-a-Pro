@@ -26,6 +26,11 @@
     AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     NSLog(@"viewDidLoad - wallPics - pass %@",    app.currentUser);
     
+    
+    [self.scrollView setScrollEnabled:YES ];
+    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width,788)];
+
+    
     user = app.currentUser;
     
     
@@ -46,6 +51,8 @@
         
         person.username = [resutlUsers objectForKey:@"username"];
         person.firstname = [resutlUsers objectForKey:@"FirstName"];
+        
+        
         person.email = [resutlUsers objectForKey:@"email"];
         person.lastname = [resutlUsers objectForKey:@"LastName"];
         person.address = [resutlUsers objectForKey:@"Address"];
@@ -78,6 +85,7 @@
     
 
     [[self txt_username ]setDelegate:self];
+    [[self txt_lastname ]setDelegate:self];
     [[self txt_address ]setDelegate:self];
     [[self txt_city ]setDelegate:self];
     [[self txt_state ]setDelegate:self];
@@ -155,6 +163,8 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+    NSLog(@" aaa %ld",(long)textField.tag);
     if(textField.tag == 8 ){
         [textField resignFirstResponder];
         return YES;
@@ -166,6 +176,8 @@
             [self.txt_phone becomeFirstResponder];
             
         }else{
+    NSLog(@" else %ld",(long)textField.tag);
+            
             UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
             if (nextResponder) {
                 // Found next responder, so set it.
@@ -196,22 +208,22 @@
     
     
     if(textField.tag == 1 ){
-        [self.scrollView setContentOffset:CGPointMake(0, -70) animated:YES];
+        [self.scrollView setContentOffset:CGPointMake(0, -50) animated:YES];
         
     }else if (textField.tag == 2){
-        [self.scrollView setContentOffset:CGPointMake(0, -40) animated:YES];
+        [self.scrollView setContentOffset:CGPointMake(0, -20) animated:YES];
     }else if (textField.tag == 3){
         [self.scrollView setContentOffset:CGPointMake(0, -10) animated:YES];
     }else if (textField.tag == 4){
-        [self.scrollView setContentOffset:CGPointMake(0, 20) animated:YES];
+        [self.scrollView setContentOffset:CGPointMake(0, 40) animated:YES];
     }else if (textField.tag == 5){
-        [self.scrollView setContentOffset:CGPointMake(0, 50) animated:YES];
+        [self.scrollView setContentOffset:CGPointMake(0, 70) animated:YES];
     }else if (textField.tag == 6){
-        [self.scrollView setContentOffset:CGPointMake(0, 80) animated:YES];
+        [self.scrollView setContentOffset:CGPointMake(0, 100) animated:YES];
     }else if (textField.tag == 7){
-        [self.scrollView setContentOffset:CGPointMake(0, 110) animated:YES];
+        [self.scrollView setContentOffset:CGPointMake(0, 130) animated:YES];
     }else if (textField.tag == 8){
-        [self.scrollView setContentOffset:CGPointMake(0, 140) animated:YES];
+        [self.scrollView setContentOffset:CGPointMake(0, 160) animated:YES];
         
     }
     

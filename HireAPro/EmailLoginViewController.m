@@ -125,7 +125,7 @@
     
     if ([segue.identifier isEqualToString:@"EmailLoginSuccesful"])
     {
-        
+                    [[self navigationController] setNavigationBarHidden:YES animated:YES];
         
         
         NSLog(@"cUser %@",cUser);
